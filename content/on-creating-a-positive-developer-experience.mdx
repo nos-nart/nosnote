@@ -1,0 +1,46 @@
+---
+title: 'On creating a positive developer experience'
+published: '2020-10-26'
+---
+
+_This is a work in progress._
+
+Engineers spend a lot of time with their tools creating software. In my eyes, one of the most underrated aspects of software development is the developer experience (DX). Are engineers happy in their development environment? Are their tools helping them solve problems, or creating more? Are engineers energized and advocates of their tools?
+
+I've spent a fair amount of time creating tools for engineers, and I've found a set of core principles to be the most impactful to DX. These principles do not represent all of what makes up positive DX, but if you follow them while creating tools for engineers I'm fairly confident the end result will be a positive experience while using those tools.
+
+Here's my short-list of principles for a positive developer experience:
+
+- Feedback loops should be fast
+- Tools should be self explaining
+- Don't get in the way
+- Creating meaningful, actionable output
+- Invest in quality documentation, make it discoverable
+
+## Feedback loops should be fast
+
+In my eyes, one of the cornerstones of a positive DX is creating a fast feedback loop. Software development entails a series of interactions, followed by a period of waiting, and finally inspecting the final result. This can manifest during local development: making a code change and then waiting for your program to compile. We also see this during a build or test run in a CI pipeline. Slower feedback loops in any of these areas can cause frustration and ultimately lend to a poor experience.
+
+## Tools should be self explaining
+
+When tools and APIs are self-explaining, developers can move quicker and stay in the context of the project they're working on. Engineers should not have to hunt for documentation every time they use a tool. This can break mental concentration and introduce friction into your development process. Some considerations here include more descriptive method names or commands, providing type information (where applicable), and human-readable output and error messages (more on that later...).
+
+## Don't get in the way
+
+There's a fine line between being helpful and getting in the way. Consider that when an engineer is reaching for a certain tool or library, it is being done to solve a tangential problem. The last thing an engineer wants is for the tool they are using to solve a problem to create more problems. Provide just enough feedback and presence to help an engineer, but don't actively inhibit progress. Sometimes this can manifest as a result of a collection of tools or utilities. Consider a custom linting setup, paired with typing feedback, and build output. Are all of your linting rules really providing value? Are engineers getting duplicative warnings? Perfection is the enemy of progress!
+
+## Creating meaningful, actionable output
+
+Engineers are used to a steady stream of output from many different sources. When creating output from a tool, ensure that what you are providing is meaningful, and actionable if necessary. Utilize log levels if you want to provide additional logging that isn't mission-critical. Failure to do so can cause engineers to default to ignoring the output. I'm a fan of the Marie Kondo method here. Does this output spark joy? No? Thank it and throw it away...
+
+Do you have a long-running process? Consider providing progress updates. Encountered a potential problem that warrants attention? Consider logging a warning with helpful steps. What about a show-stopping error? If possible, provide clear steps to resolve the error and get back on track. A great example of actionable output can be seen in React, where error messages often link to additional documentation on the specific error scenario.
+
+## Invest in quality documentation, make it discoverable
+
+Documentation is key for any tool. If the capabilities aren't communicated, how do we expect it to be used? It's important to ensure that the documentation you do have is clear, concise, and discoverable. Prioritize the most common documentation needs: How do I install it? How do I use it? What can it do? More expansive documentation can also be provided, but prioritize the short-list. Ensure your documentation is up-to-date!
+
+Additionally, one of the most helpful forms of documentation that I have found is practical, applicable usage examples. How do I integrate this library with project X? How do I do that specific thing with this tool? Think of examples from a user's point of view and try to answer common questions in this way. Bonus points if these examples are executable! That way testing and validation can be automated, ensuring the examples stay fresh and relevant. Next.js's examples are a great showcase of this pattern.
+
+## Conclusion
+
+A positive developer experience should not be taken for granted. A poor experience can manifest in the end-product, resulting in subpar experiences for users. It can also have a negative impact on a team's morale if they are fighting with their tools. By improving the way that software and products get created, we can ensure that engineers can focus on solving the most impactful problems!

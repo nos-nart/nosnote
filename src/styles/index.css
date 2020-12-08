@@ -1,0 +1,10 @@
+/* purgecss start ignore */
+@tailwind  base;
+@tailwind  components;
+/* purgecss end ignore */
+@tailwind  utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
+body {
+  font-family: 'Padauk', sans-serif;
+}

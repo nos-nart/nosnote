@@ -1,0 +1,121 @@
+---
+title: 'On for ... of vs. for ... in'
+published: '2019-12-15'
+---
+
+So, you need to iterate over something in JavaScript. You know about `.forEach()` and `.map()`, but you wonder why you don't see much of the "traditional" for loop anymore. You've done some searching and come across `for ... of` and `for ... in`.  What's the difference?
+
+## Example
+
+Here's what `for ... of` looks like:
+
+```jsx
+const myArray = [1, 2, 3];
+
+for (const element of myArray) {
+  console.log(element);
+}
+
+// what do we get?
+```
+
+Here's what `for ... in` looks like:
+
+```jsx
+const myArray = [1, 2, 3];
+
+for (const element in myArray) {
+  console.log(element);
+}
+
+// what do we get?
+```
+
+Immediately the operators seem to be accomplishing a similar task, but the devil's in the details; we dig deeper.
+
+Let's try executing these snippets, here's what we'll get for the first:
+
+```jsx
+const myArray = [1, 2, 3];
+
+for (const element of myArray) {
+  console.log(element);
+}
+
+// what do we get?
+
+// 1
+// 2
+// 3
+```
+
+Alright, cool. So it looks like we are just iterating over the elements in the array. That's to be expected, right? What about `for ... in`?
+
+```jsx
+const myArray = [1, 2, 3];
+
+for (const element in myArray) {
+  console.log(element);
+}
+
+// what do we get?
+
+// 0
+// 1
+// 2
+
+// 🤔
+```
+
+Okay, that's maybe not quite what we expected. An astute observer can see that we are actually iterating over the indices of `myArray`, but why?
+
+## MDN To The Rescue
+
+When  faced with a JavaScript question (as one often is), I find myself turning to [MDN](https://developer.mozilla.org/). MDN is an awesome resource for all things web development and JavaScript, so let's head there and dive into the difference between these two iteration strategies.
+
+First, `for ... of`: 
+
+> The **for...of statement** creates a loop iterating over iterable objects ...   It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object. ([source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of))
+
+This gives us a hint: "...statements to be executed for the **value** of each distinct property of the object." Huh, so we get each value in the iterable. So what does `for ... in` give us? Let's find out...
+
+> The **for...in statement** iterates over all non-Symbol, enumerable properties of an object. ([source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in))
+
+Short, sweet. `for ... in` gives us all of the **properties** of an iterable. Mystery solved!
+
+## Mystery Solved?
+
+Wait a minute, what are the properties of an array? We know what an object's properties are:
+
+```jsx
+const myObject = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+
+// My properties are: 'a', 'b', 'c' 👍
+```
+
+What about an array though? When we used `for ... in` on `myArray` we got the indices.   Have you heard the old saying "everything in JavaScript is an object?" Well, in this case it's true! An `Array` is just a special type of object in JavaScript who's properties are indices to a value. We can think of `myArray` as looking something like this:
+
+```jsx
+const myArray = {
+  0: 1,
+  1: 2,
+  2: 3
+};
+
+// My properties are: 0, 1, 2 ✨
+```
+
+Of course, there's [more to Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) than just that, but this at least let's us understand where the results from `for ... in` are coming from. Sometimes taking a peak underneath the hood gives us a better understanding for why things work.
+
+## That's A Wrap
+
+So, now we can confidently say:
+
+- `for ... of` **gives us values of an iterable**
+- `for ... in` **gives us properties of an iterable**
+
+Sometimes the simplest things can provide excellent learning opportunities and give us a chance to get a better grasp on the way things work. Never stop exploring!
