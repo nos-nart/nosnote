@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body className="antialiased">
+        <body className="antialiased tracking-wide">
           <Main />
           {/* Here we will mount our modal portal */}
           <div id="modal" />

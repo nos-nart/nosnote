@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Seo, Date } from '@/components';
 import fs from 'fs';
 import path from 'path';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { getNotes } from '@/utils/notes';
@@ -19,6 +19,13 @@ export default function Note({ markup, meta }) {
   const router = useRouter();
 
   const content = hydrate(markup, {});
+
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <Seo title="note 1" description="" />
@@ -37,7 +44,7 @@ export default function Note({ markup, meta }) {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const noteId = ctx.params.note as string;
+  const noteId = ctx.params.page as string;
   const mdxSource = await fs.promises.readFile(
     path.join(process.cwd(), `content`, `${noteId}.mdx`),
     `utf-8`,
@@ -55,13 +62,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = (await getNotes()).map((ent) => ({
-    params: { post: ent.name.split(`.`)[0] },
+    params: { page: ent.name.split(`.`)[0].toString() },
   }));
 
   return {
     paths,
     fallback: true,
   };
-}
+};

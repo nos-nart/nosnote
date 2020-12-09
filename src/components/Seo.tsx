@@ -14,6 +14,24 @@ export const Seo: React.FC<Props> = ({ title, description = `` }) => {
   return (
     <Head>
       <link
+        rel="preload"
+        href="/fonts/JetBrainsMono-Light.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/JetBrainsMono-LightItalic.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/JetBrainsMono-Medium.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"

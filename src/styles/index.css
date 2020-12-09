@@ -4,7 +4,30 @@
 /* purgecss end ignore */
 @tailwind  utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
+@font-face {
+  font-family: "JetBrains";
+  src: url("/fonts/JetBrainsMono-Light.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains";
+  src: url("/fonts/JetBrainsMono-Medium.ttf");
+  font-style: bold;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains";
+  src: url("/fonts/JetBrainsMono-LightItalic.ttf");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
 body {
-  font-family: 'Padauk', sans-serif;
+  font-family: 'JetBrains', monospace;
 }
