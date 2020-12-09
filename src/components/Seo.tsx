@@ -15,19 +15,13 @@ export const Seo: React.FC<Props> = ({ title, description = `` }) => {
     <Head>
       <link
         rel="preload"
-        href="/fonts/JetBrainsMono-Light.ttf"
+        href="/fonts/Padauk-Regular.ttf"
         as="font"
         crossOrigin=""
       />
       <link
         rel="preload"
-        href="/fonts/JetBrainsMono-LightItalic.ttf"
-        as="font"
-        crossOrigin=""
-      />
-      <link
-        rel="preload"
-        href="/fonts/JetBrainsMono-Medium.ttf"
+        href="/fonts/Padauk-Bold.ttf"
         as="font"
         crossOrigin=""
       />

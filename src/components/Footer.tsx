@@ -3,7 +3,7 @@ import { GithubLogo } from './svgs';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="flex justify-between mx-24 py-4">
+    <footer className="flex justify-between py-4">
       <span>
         © {new Date().getFullYear()},{` `}
         <span className="text-purple-500 font-bold tracking-wide">nosnart</span>

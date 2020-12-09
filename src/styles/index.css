@@ -5,29 +5,21 @@
 @tailwind  utilities;
 
 @font-face {
-  font-family: "JetBrains";
-  src: url("/fonts/JetBrainsMono-Light.ttf");
+  font-family: "Padauk";
+  src: url("/fonts/Padauk-Regular.ttf");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "JetBrains";
-  src: url("/fonts/JetBrainsMono-Medium.ttf");
+  font-family: "Padauk";
+  src: url("/fonts/Padauk-Bold.ttf");
   font-style: bold;
   font-weight: 600;
   font-display: swap;
 }
 
-@font-face {
-  font-family: "JetBrains";
-  src: url("/fonts/JetBrainsMono-LightItalic.ttf");
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
-
 body {
-  font-family: 'JetBrains', monospace;
+  font-family: 'Padauk', sans-serif;
 }

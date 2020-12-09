@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 type Props = {
   className?: string;
 };
 
-export const Logo: React.FC<Props> = (props): ReactElement => (
+export const Logo: React.FC<Props> = (props) => (
   <svg
     {...props}
     viewBox="0 0 93 93"

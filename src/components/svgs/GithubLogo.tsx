@@ -1,10 +1,10 @@
-import { ReactElement } from 'react';
+import React from 'react';
 
 type Props = {
   className?: string;
 };
 
-export const GithubLogo: React.FC<Props> = (props): ReactElement => (
+export const GithubLogo: React.FC<Props> = (props) => (
   <svg
     role="img"
     {...props}
