@@ -1,6 +1,6 @@
 export default {
   siteMetadata: {
-    title: `note`,
+    title: `nosnart`,
     author: {
       name: `Coca`,
       summary: `he is someone`,

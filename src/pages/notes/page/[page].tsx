@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import Link from 'next/link';
-import { Seo, Date } from '@/components';
+import { Seo, NoteItem } from '@/components';
 import fs from 'fs';
 import path from 'path';
 import { GetStaticProps, GetStaticPaths } from 'next';
@@ -9,7 +7,7 @@ import useSWR from 'swr';
 import { getNotes } from '@/utils/notes';
 import hydrate from 'next-mdx-remote/hydrate';
 import matter from 'gray-matter';
-import mdxPrism from 'mdx-prism';
+import mdxOptions from '@/lib/mdxOptions';
 import renderToString from 'next-mdx-remote/render-to-string';
 
 const fetcher = (url: RequestInfo, options: RequestInit) =>
@@ -29,16 +27,7 @@ export default function Note({ markup, meta }) {
   return (
     <>
       <Seo title="note 1" description="" />
-      <h1>{meta.title}</h1>
-      <p>
-        <Date date={meta.published} />
-      </p>
-      {content}
-      <div className="article-footer">
-        <Link href="/notes">
-          <a className="text-gray-500">Back to notes</a>
-        </Link>
-      </div>
+      <NoteItem meta={meta} content={content} />
     </>
   );
 }
@@ -52,7 +41,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { content, data } = matter(mdxSource);
   const markup = await renderToString(content, {
     scope: data,
-    mdxOptions: { rehypePlugins: [mdxPrism] },
+    mdxOptions,
   });
   return {
     props: {

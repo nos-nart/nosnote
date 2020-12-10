@@ -5,15 +5,39 @@ import { Navigation } from './Navigation';
 
 export const Layout: React.FC = ({ children }) => {
   return (
-    <div className="mx-12">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex items-start mt-12">
+      <div className="w-full max-w-5xl mx-auto mt-20 flex flex-1">
         <Navigation />
-        <main className="flex-1 px-12 flex flex-col">
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </main>
+        <div className="lg:px-12 px-6 flex-1">{children}</div>
       </div>
+      <Footer />
+      <style jsx global>{`
+        body::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        body::-webkit-scrollbar-track {
+          background: #e5e7eb;
+        }
+
+        body::-webkit-scrollbar-thumb {
+          background-color: #374151;
+          border-radius: 20px;
+          border: 3px solid #e5e7eb;
+        }
+
+        .remark-code-title {
+          padding: 0.5rem 1rem;
+          background: #282a36;
+          color: #97a3af;
+          font-size: 0.875rem;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          width: max-content;
+        }
+      `}</style>
     </div>
   );
 };

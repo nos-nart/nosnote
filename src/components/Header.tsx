@@ -5,15 +5,23 @@ import { Logo } from './svgs';
 
 export const Header: React.FC = () => {
   return (
-    <header className="my-4">
-      <nav className="flex justify-between">
-        <Link href="/">
-          <a>
-            <Logo className="w-10 h-10 cursor-pointer" />
-          </a>
-        </Link>
-        <div />
-      </nav>
-    </header>
+    <>
+      <header className="sticky top-0 z-50">
+        <nav className="max-w-6xl m-auto flex justify-between p-2">
+          <Link href="/">
+            <a>
+              <Logo className="w-16 h-16 cursor-pointer" />
+            </a>
+          </Link>
+          <div />
+        </nav>
+      </header>
+      <style jsx>{`
+        nav {
+          background: #00000000;
+          backdrop-filter: saturate(180%) blur(2rem);
+        }
+      `}</style>
+    </>
   );
 };

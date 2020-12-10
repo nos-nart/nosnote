@@ -1,30 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
-import { Seo, Date } from '@/components';
+import { Seo, NoteList } from '@/components';
 import { getNoteList } from '@/utils/notes';
+import dayjs from 'dayjs';
 
 export default function NoteIndex({ notes }) {
   return (
     <>
       <Seo title="notes" description="" />
-      <h1 className="text-2xl text-purple-500">Notes</h1>
-      {notes.map((note) => (
-        <div key={note.title} className="note">
-          <div className="published">
-            <Date date={note.published} />
-          </div>
-          <Link href={`/notes/page/${note.slug}`}>
-            <a>{note.title}</a>
-          </Link>
-        </div>
-      ))}
+      <NoteList notes={notes} />
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const notes = await getNoteList();
+export const getStaticProps: GetStaticProps = async () => {
+  const notes = (await getNoteList()).sort((a, b) => {
+    const isoA = dayjs(a.published).toISOString();
+    const isoB = dayjs(b.published).toISOString();
+    return dayjs(isoA).isBefore(dayjs(isoB)) ? 1 : -1;
+  });
 
   return {
     props: {

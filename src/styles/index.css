@@ -23,3 +23,29 @@
 body {
   font-family: 'Padauk', sans-serif;
 }
+
+h1 {
+  @apply text-4xl leading-10 font-extrabold;
+}
+h2 {
+  @apply text-xl font-bold leading-7;
+}
+h3 {
+  @apply text-lg font-semibold leading-7;
+}
+ol {
+  @apply list-decimal ml-8;
+}
+ul li {
+  @apply relative pl-5;
+}
+ul li::before {
+  content: '';
+  @apply absolute left-0.5 top-2.5 block h-1.5 w-1.5 rounded-full bg-gray-300;
+}
+h2 + p {
+  @apply mt-2;
+}
+hr {
+  @apply mt-4;
+}

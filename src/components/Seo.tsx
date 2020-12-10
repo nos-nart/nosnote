@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { getSiteMetaData } from '../lib/get-site-meta-data';
+import { getSiteMetaData } from '@/utils/get-site-meta-data';
 
 type Props = {
   title: string;

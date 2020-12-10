@@ -1,0 +1,25 @@
+---
+title: 'note 5'
+published: '2021-01-01'
+---
+
+# this is note 5
+
+```jsx:test.jsx
+<>
+  <Seo title="note 1" description="" />
+  <Link href="/notes">
+    <a className="text-gray-500 -mt-12 flex hover:text-purple-600">
+      <ArrowLeft className="w-6 h-6 mr-2" />
+      <span>Back to notes</span>
+    </a>
+  </Link>
+  <div className="my-6">
+    <h1 className="text-2xl text-purple-500">{meta.title}</h1>
+    <p>
+      <Date date={meta.published} />
+    </p>
+  </div>
+  {content}
+</>
+```
