@@ -1,5 +1,5 @@
 import SiteConfig from '../../site.config';
 
-export function getSiteMetaData() {
+export const getSiteMetaData = (): any => {
   return SiteConfig.siteMetadata;
-}
+};

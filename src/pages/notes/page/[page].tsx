@@ -35,7 +35,7 @@ export default function Note({ markup, meta }) {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const noteId = ctx.params.page as string;
   const mdxSource = await fs.promises.readFile(
-    path.join(process.cwd(), `content`, `${noteId}.mdx`),
+    path.join(process.cwd(), `content/notes`, `${noteId}.mdx`),
     `utf-8`,
   );
   const { content, data } = matter(mdxSource);

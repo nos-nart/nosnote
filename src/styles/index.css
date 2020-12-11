@@ -20,10 +20,6 @@
   font-display: swap;
 }
 
-body {
-  font-family: 'Padauk', sans-serif;
-}
-
 h1 {
   @apply text-4xl leading-10 font-extrabold;
 }

@@ -12,4 +12,5 @@ export default {
       twitter: `kapi46708343`,
     },
   },
+  tags: [`react`, `next`, `css`, `javascript`],
 };

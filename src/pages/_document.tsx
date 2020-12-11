@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body className="antialiased tracking-wide bg-gray-900 text-white">
+        <body className="antialiased tracking-wide font-default dark:bg-gray-900 dark:text-white bg-gray-100 text-gray-900">
           <Main />
           {/* Here we will mount our modal portal */}
           <div id="modal" />

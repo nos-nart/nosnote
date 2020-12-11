@@ -38,6 +38,7 @@
     "faunadb": "4.0.0",
     "framer-motion": "2.9.5",
     "gray-matter": "4.0.2",
+    "local-storage-fallback": "4.1.1",
     "mdx-prism": "0.3.1",
     "next": "10.0.3",
     "next-mdx-remote": "1.0.0",

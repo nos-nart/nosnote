@@ -12,6 +12,9 @@ export const Navigation: React.FC = () => {
         <NavLink href="/tools">
           <Emoji symbol="🧰" /> tools
         </NavLink>
+        <NavLink href="/books">
+          <Emoji symbol="📖" /> books
+        </NavLink>
       </div>
     </>
   );

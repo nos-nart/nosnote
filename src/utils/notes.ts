@@ -10,7 +10,7 @@ interface NoteMetadata {
 
 export async function getNotes(): Promise<fs.Dirent[]> {
   return (
-    await fs.promises.readdir(path.join(process.cwd(), `content`), {
+    await fs.promises.readdir(path.join(process.cwd(), `content/notes`), {
       withFileTypes: true,
     })
   ).filter((ent) => ent.isFile() && ent.name.endsWith(`.mdx`));
@@ -22,12 +22,12 @@ export async function getNoteList(): Promise<NoteMetadata[]> {
   return Promise.all(
     notes.map(async (note) => {
       const contents = await fs.promises.readFile(
-        path.join(process.cwd(), `content`, note.name),
+        path.join(process.cwd(), `content/notes`, note.name),
         `utf-8`,
       );
 
       return {
-        slug: note.name.split(`.`)[0],
+        slug: note.name.replace(/\.mdx$/, ``),
         ...grayMatter(contents).data,
       } as NoteMetadata;
     }),

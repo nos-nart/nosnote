@@ -5,9 +5,10 @@ import { Date } from './Date';
 
 type Props = {
   notes: any;
+  tags: string[];
 };
 
-export const NoteList: React.FC<Props> = ({ notes }) => {
+export const NoteList: React.FC<Props> = ({ notes, tags }) => {
   return (
     <div className="flex items-start">
       <div className="flex-1">
@@ -28,7 +29,7 @@ export const NoteList: React.FC<Props> = ({ notes }) => {
         </div>
       </div>
       <ul className="ml-8 w-32 flex flex-col p-4">
-        {[`react`, `next`, `css`].map((tag) => (
+        {tags.map((tag) => (
           <li className="cursor-pointer hover:text-purple-600">{`#${tag}`}</li>
         ))}
       </ul>
