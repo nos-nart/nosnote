@@ -30,7 +30,9 @@ export const NoteList: React.FC<Props> = ({ notes, tags }) => {
       </div>
       <ul className="ml-8 w-32 flex flex-col p-4">
         {tags.map((tag) => (
-          <li className="cursor-pointer hover:text-purple-600">{`#${tag}`}</li>
+          <Link href={`/notes/tags/${tag}`}>
+            <a className="hover:text-purple-500">{`# ${tag}`}</a>
+          </Link>
         ))}
       </ul>
     </div>

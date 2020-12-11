@@ -1,4 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable func-names */
+/* eslint-disable global-require */
 /* eslint-disable prettier/prettier */
+const defaultTheme = require(`tailwindcss/defaultTheme`);
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -7,10 +12,16 @@ module.exports = {
   purge: false,
   darkMode: `class`,
   theme: {
-    fontFamily: {
-      'default': [`Padauk`, `sans-serif`]
-    },
     extend: {
+      fontFamily: {
+        padauk: [`Padauk`, ...defaultTheme.fontFamily.sans]
+      },
+      lineHeight: {
+        '11': `2.75rem`,
+        '12': `3rem`,
+        '13': `3.25rem`,
+        '14': `3.5rem`,
+      },
       backgroundColor: {
         'react': `#1890ff`,
         'next': `#434343`,
@@ -24,9 +35,33 @@ module.exports = {
         'docker': `#1890ff`,
         'javascript': `#d4b106`,
         'microservice': `#a0d911`,
-      }
+      },
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require(`@tailwindcss/typography`),
+    function ({ addBase, addComponents, theme }) {
+      addBase([
+        {
+          '@font-face': {
+            fontFamily: `Padauk`,
+            src: `url("/fonts/Padauk-Regular.ttf")`,
+            fontStyle: `normal`,
+            fontWeight: `400`,
+            fontDisplay: `swap`,
+          }
+        },
+        {
+          '@font-face': {
+            fontFamily: `Padauk`,
+            src: `url("/fonts/Padauk-Bold.ttf")`,
+            fontStyle: `bold`,
+            fontWeight: `600`,
+            fontDisplay: `swap`,
+          }
+        },
+      ])
+    },
+  ],
 };

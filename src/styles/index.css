@@ -4,30 +4,14 @@
 /* purgecss end ignore */
 @tailwind  utilities;
 
-@font-face {
-  font-family: "Padauk";
-  src: url("/fonts/Padauk-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Padauk";
-  src: url("/fonts/Padauk-Bold.ttf");
-  font-style: bold;
-  font-weight: 600;
-  font-display: swap;
-}
-
 h1 {
-  @apply text-4xl leading-10 font-extrabold;
+  @apply text-5xl leading-14 font-extrabold;
 }
 h2 {
-  @apply text-xl font-bold leading-7;
+  @apply text-3xl font-bold leading-12;
 }
 h3 {
-  @apply text-lg font-semibold leading-7;
+  @apply text-2xl font-semibold leading-10;
 }
 ol {
   @apply list-decimal ml-8;
@@ -38,9 +22,6 @@ ul li {
 ul li::before {
   content: '';
   @apply absolute left-0.5 top-2.5 block h-1.5 w-1.5 rounded-full bg-gray-300;
-}
-h2 + p {
-  @apply mt-2;
 }
 hr {
   @apply mt-4;

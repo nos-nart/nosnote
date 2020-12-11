@@ -14,7 +14,7 @@ export const TagButton: React.FC<Props> = ({ name }) => {
   }, []);
 
   return (
-    <Link href={`notes/tags/${name}`}>
+    <Link href={`/notes/tags/${name}`}>
       <a
         className={classNames(`ml-1 text-sm px-2 ${background} text-gray-200`)}
       >

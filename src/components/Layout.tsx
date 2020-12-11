@@ -37,6 +37,18 @@ export const Layout: React.FC = ({ children }) => {
           border-top-right-radius: 5px;
           width: max-content;
         }
+
+        /* Styles for lazy loaded images */
+        .blur-up {
+          -webkit-filter: blur(5px);
+          filter: blur(5px);
+          transition: filter 500ms ease-in, -webkit-filter 500ms ease-in;
+        }
+
+        .blur-up.lazyloaded {
+          -webkit-filter: blur(0);
+          filter: blur(0);
+        }
       `}</style>
     </div>
   );
