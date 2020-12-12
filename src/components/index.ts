@@ -6,3 +6,4 @@ export * from './NoteList';
 export * from './NoteItem';
 export * from './ThemeProvider';
 export * from './TagButton';
+export * from './Bio';
