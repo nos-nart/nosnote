@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from './NavLink';
-import { Emoji } from './Emoji';
+import { NavLink, Emoji } from '.';
 
 export const Navigation: React.FC = () => {
   return (

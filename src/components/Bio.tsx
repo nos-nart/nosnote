@@ -8,15 +8,15 @@ export const Bio: React.FC = () => {
 
   return (
     <>
-      <p className="text-2xl text-purple-500">
+      <h1 className="-mt-12 text-purple-500">
         I&#39;m{` `}
         {author.name}
-      </p>
-      <div className="grid grid-cols-5">
-        <ul className="col-span-3">
-          <li className="mt-4">{author.summary}</li>
-          <li className="mt-4">{author.work}</li>
-          <li className="mt-4">{author.hobby}</li>
+      </h1>
+      <div className="grid grid-cols-6">
+        <ul className="col-span-4">
+          <li className="mb-4">{author.summary}</li>
+          <li className="mb-4">{author.work}</li>
+          <li className="mb-4">{author.hobby}</li>
         </ul>
         <div className="col-span-2 justify-self-end">
           <Image

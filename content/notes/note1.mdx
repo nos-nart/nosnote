@@ -1,15 +1,24 @@
 ---
-title: 'note one'
-published: '2020-12-09'
+title: 'FileReader vs. window.URL.createObjectURL'
+published: '2020-12-14'
 tags:
-  - react
   - javascript
 ---
 
-### Angular app in the UI subfolder
+There is difference.
 
-    .. structure::
-        ├──💻ui
-            ├──📂src
-            |   ├──📁app
-            |   |   ├──📁core
+### 1) time
+ - `createObjectURL` is synchronously executed (immediately)
+ - `FileReader.readAsDataURL` is asynchronously executed (after some time)
+
+### 2) memory usage
+ - `createObjectURL` returns url with hash, and store object in memory until document triggers unload event (e.g. document close) or execute `revokeObjectURL`
+ - `FileReader.readAsDataURL` returns `base64` that contains many characters, and use more memory than blob url, but removes from memory when you don't use it (by garbage collector)
+
+### 3) support
+ - `createObjectURL` from IE 10 and all modern browsers
+ - `FileReader.readAsDataURL` from IE 10 and all modern browsers
+
+ **From me, is better to use blob url's (via `createObjectURL`), it is more efficient and faster, but if you use many object urls, you need to
+ release these urls by `revokeObjectURL` (to free memory)**.
+*For example, you can call URL.revokeObjectURL inside an Image onload handler and the Image object will keep the image data, without losing it, Nahuel Greco (c).*

@@ -10,27 +10,52 @@ type Props = {
 
 export const NoteItem: React.FC<Props> = ({ meta, content }) => {
   return (
-    <article>
+    <>
       <Link href="/notes">
         <a className="dark:text-gray-300 text-gray-500  -mt-12 flex hover:text-purple-600 w-40">
           <ArrowLeft className="w-6 h-6 mr-2" />
           <span>Back to notes</span>
         </a>
       </Link>
-      <div className="my-6 flex justify-between">
-        <div>
-          <h1 className="text-2xl text-purple-500">{meta.title}</h1>
-          <p>
-            <Date date={meta.published} />
-          </p>
+      <article className="markdown-body">
+        <div className="my-6 flex justify-between">
+          <div>
+            <h1 className="text-2xl text-purple-500">{meta.title}</h1>
+            <p>
+              <Date date={meta.published} />
+            </p>
+          </div>
+          <div>
+            {meta.tags.map((t) => (
+              <TagButton key={t} name={t} />
+            ))}
+          </div>
         </div>
-        <div>
-          {meta.tags.map((t) => (
-            <TagButton key={t} name={t} />
-          ))}
-        </div>
-      </div>
-      {content}
-    </article>
+        {content}
+      </article>
+      <style jsx>{`
+        .markdown-body table {
+          display: block;
+          width: max-content;
+          max-width: 100%;
+          overflow: auto;
+        }
+
+        .markdown-body table tr {
+          border-top: 1px solid #272c32;
+        }
+
+        .markdown-body table td,
+        .markdown-body table th {
+          padding: 6px 13px;
+          border: 1px solid #3b434b;
+        }
+
+        .markdown-body a {
+          color: #7c3aed;
+          text-decoration: underline;
+        }
+      `}</style>
+    </>
   );
 };

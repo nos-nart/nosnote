@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50">
+      <header className="sticky top-0 z-50 bg-header-light dark:bg-header-dark">
         <nav className="max-w-6xl m-auto flex justify-between p-2">
           <Link href="/">
             <a>
@@ -71,9 +71,8 @@ export const Header: React.FC = () => {
         </nav>
       </header>
       <style jsx>{`
-        nav {
-          background: #00000000;
-          backdrop-filter: saturate(180%) blur(2rem);
+        header {
+          backdrop-filter: blur(5px);
         }
       `}</style>
     </>

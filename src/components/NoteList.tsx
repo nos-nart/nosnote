@@ -12,7 +12,7 @@ export const NoteList: React.FC<Props> = ({ notes, tags }) => {
   return (
     <div className="flex items-start">
       <div className="flex-1">
-        <h1 className="text-3xl text-purple-500 -mt-12">Notes</h1>
+        <h1 className="text-purple-500 -mt-12">Notes</h1>
         <div className="mt-3">
           {notes.map((note) => (
             <div key={note.title} className="mb-6">

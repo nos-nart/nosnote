@@ -2,8 +2,9 @@
 import '../styles/index.css';
 import '../styles/prism-theme.css';
 import { Layout, ThemeProvider } from '@/components';
+// import { AnimatePresence } from 'framer-motion';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <script

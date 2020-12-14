@@ -23,6 +23,8 @@ module.exports = {
         '14': `3.5rem`,
       },
       backgroundColor: {
+        'header-dark': `#11182766`,
+        'header-light': `#f3f4f6b3`,
         'react': `#1890ff`,
         'next': `#434343`,
         'vue': `#10b981`,

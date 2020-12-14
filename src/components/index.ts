@@ -6,4 +6,8 @@ export * from './NoteList';
 export * from './NoteItem';
 export * from './ThemeProvider';
 export * from './TagButton';
+export * from './NavLink';
+export * from './Emoji';
 export * from './Bio';
+export * from './BookCard';
+export * from './ExternalLink';
