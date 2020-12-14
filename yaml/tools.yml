@@ -1,39 +1,42 @@
   api:
     - name: public api
       url: https://github.com/public-apis/public-apis
-      image: /js-coach.svg
+      image: js-coach.svg
   css:
     - name: Clip path generator
       url: https://bennettfeely.com/clippy/
-      image: /js-coach.svg
+      image: js-coach.svg
   javascript:
     - name: Find the pagekage JS.coach
       url: https://js.coach/
-      image: /js-coach.svg
+      image: js-coach.svg
     - name: Awesome Javascript
       url: https://github.com/topics/awesome?l=javascript
-      image: /js-coach.svg
+      image: github.svg
     - name: JSON generator
       url: https://mockaroo.com/
-      image: /js-coach.svg
+      image: js-coach.svg
+    - name: Promise Illustrations
+      url: https://bevacqua.github.io/promisees/#
+      image: js-coach.svg
   react:
     - name: Awesome React
       url: https://github.com/enaqx/awesome-react
-      image: /js-coach.svg
+      image: js-coach.svg
     - name: Charka UI
       url: https://openchakra.app/
-      image: /js-coach.svg
+      image: js-coach.svg
   next:
     - name: Template Next.js
       url: https://github.com/jpedroschmitz/typescript-nextjs-starter
-      image: /js-coach.svg
+      image: js-coach.svg
   ui:
     - name: Free Illustrations
       url: https://undraw.co/illustrations
-      image: /js-coach.svg
+      image: js-coach.svg
     - name: Brand Logo
       url: https://svgporn.com/
-      image: /js-coach.svg
+      image: js-coach.svg
     - name: World Vector Logo
       url: https://worldvectorlogo.com/
-      image: /js-coach.svg
+      image: js-coach.svg

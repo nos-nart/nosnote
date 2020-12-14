@@ -2,7 +2,7 @@
 import React from 'react';
 import { getTools, ToolProps } from '@/utils/tools';
 import { GetStaticProps } from 'next';
-import { ExternalLink } from '@/components';
+import { ToolItem } from '@/components';
 
 export default function Tools({ tools }) {
   return (
@@ -11,14 +11,9 @@ export default function Tools({ tools }) {
       <div className="flex items-center">
         <h3>Javascript</h3>
       </div>
-      <div className="grid grid-cols-6 gap-3">
+      <div className="grid lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-3 grid-cols-1 gap-3">
         {tools.javascript.map((js: ToolProps, index: number) => (
-          <ExternalLink
-            key={index}
-            url={js.url}
-            name={js.name}
-            image={js.image}
-          />
+          <ToolItem key={index} url={js.url} name={js.name} image={js.image} />
         ))}
       </div>
     </>

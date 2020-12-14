@@ -10,4 +10,4 @@ export * from './NavLink';
 export * from './Emoji';
 export * from './Bio';
 export * from './BookCard';
-export * from './ExternalLink';
+export * from './ToolItem';
