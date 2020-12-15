@@ -21,7 +21,8 @@ ul li {
 }
 ul li::before {
   content: '';
-  @apply absolute left-0.5 top-2.5 block h-1.5 w-1.5 rounded-full bg-gray-300;
+  @apply absolute left-0.5 top-2/4 block h-1.5 w-1.5 rounded-full bg-gray-300;
+  transform: translateY(-50%);
 }
 hr {
   @apply mt-4;

@@ -1,9 +1,37 @@
-import books from '../../yaml/books.yml';
+import fs from 'fs';
+import path from 'path';
+import grayMatter from 'gray-matter';
 
-export type BookProps = {
-  readonly title: string;
-  readonly img: string;
-};
+interface BookMetadata {
+  slug: string;
+  title: string;
+  published: string;
+  startDate: string;
+  finishDate: string;
+}
 
-export const getReadingBook = (): BookProps[] => books.books.reading;
-export const getReadBook = (): BookProps[] => books.books.read;
+export async function getBooks(): Promise<fs.Dirent[]> {
+  return (
+    await fs.promises.readdir(path.join(process.cwd(), `content/books`), {
+      withFileTypes: true,
+    })
+  ).filter((ent) => ent.isFile() && ent.name.endsWith(`.mdx`));
+}
+
+export async function getBookList(): Promise<BookMetadata[]> {
+  const books = await getBooks();
+
+  return Promise.all(
+    books.map(async (book) => {
+      const contents = await fs.promises.readFile(
+        path.join(process.cwd(), `content/books`, book.name),
+        `utf-8`,
+      );
+
+      return {
+        slug: book.name.replace(/\.mdx$/, ``),
+        ...grayMatter(contents).data,
+      } as BookMetadata;
+    }),
+  );
+}

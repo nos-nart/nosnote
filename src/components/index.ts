@@ -9,5 +9,6 @@ export * from './TagButton';
 export * from './NavLink';
 export * from './Emoji';
 export * from './Bio';
-export * from './BookCard';
+export * from './BookItem';
 export * from './ToolItem';
+export * from './ClientOnlyPortal';
