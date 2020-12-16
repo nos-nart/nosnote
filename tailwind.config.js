@@ -14,7 +14,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        padauk: [`Padauk`, ...defaultTheme.fontFamily.sans]
+        rubik: [`Rubik`, ...defaultTheme.fontFamily.sans]
+      },
+      boxShadow: {
+        dark: `rgba(14, 255, 77, 0.5) 3px 0px 22px`,
       },
       lineHeight: {
         '11': `2.75rem`,
@@ -47,8 +50,17 @@ module.exports = {
       addBase([
         {
           '@font-face': {
-            fontFamily: `Padauk`,
-            src: `url("/fonts/Padauk-Regular.ttf")`,
+            fontFamily: `Rubik`,
+            src: `url("/fonts/Rubik-Light.ttf")`,
+            fontStyle: `light`,
+            fontWeight: `300`,
+            fontDisplay: `swap`,
+          }
+        },
+        {
+          '@font-face': {
+            fontFamily: `Rubik`,
+            src: `url("/fonts/Rubik-Regular.ttf")`,
             fontStyle: `normal`,
             fontWeight: `400`,
             fontDisplay: `swap`,
@@ -56,8 +68,17 @@ module.exports = {
         },
         {
           '@font-face': {
-            fontFamily: `Padauk`,
-            src: `url("/fonts/Padauk-Bold.ttf")`,
+            fontFamily: `Rubik`,
+            src: `url("/fonts/Padauk-Regular.ttf")`,
+            fontStyle: `italic`,
+            fontWeight: `400`,
+            fontDisplay: `swap`,
+          }
+        },
+        {
+          '@font-face': {
+            fontFamily: `Rubik`,
+            src: `url("/fonts/Rubik-Bold.ttf")`,
             fontStyle: `bold`,
             fontWeight: `600`,
             fontDisplay: `swap`,

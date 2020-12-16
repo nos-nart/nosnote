@@ -25,5 +25,5 @@ ul li::before {
   transform: translateY(-50%);
 }
 hr {
-  @apply mt-4;
+  @apply w-full my-4;
 }

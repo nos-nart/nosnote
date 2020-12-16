@@ -1,19 +1,16 @@
-import { Seo, NoteContent } from '@/components';
+import { Seo, BookContent } from '@/components';
 import fs from 'fs';
 import path from 'path';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { motion } from 'framer-motion';
+import { getBooks } from '@/utils/books';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
-import { getNotes } from '@/utils/notes';
 import hydrate from 'next-mdx-remote/hydrate';
 import matter from 'gray-matter';
 import mdxOptions from '@/lib/mdxOptions';
 import renderToString from 'next-mdx-remote/render-to-string';
 
-const fetcher = (url: RequestInfo, options: RequestInit) =>
-  fetch(url, options).then((res) => res.json());
-
-export default function Note({ markup, meta }) {
+export default function Book({ markup, meta }) {
   const router = useRouter();
 
   const content = hydrate(markup, {});
@@ -27,15 +24,15 @@ export default function Note({ markup, meta }) {
   return (
     <>
       <Seo title={meta.title} description="" />
-      <NoteContent meta={meta} content={content} />
+      <BookContent meta={meta} content={content} />
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const noteId = ctx.params.page as string;
+  const bookId = ctx.params.book as string;
   const mdxSource = await fs.promises.readFile(
-    path.join(process.cwd(), `content/notes`, `${noteId}.mdx`),
+    path.join(process.cwd(), `content/books`, `${bookId}.mdx`),
     `utf-8`,
   );
   const { content, data } = matter(mdxSource);
@@ -52,8 +49,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await getNotes()).map((ent) => ({
-    params: { page: ent.name.split(`.`)[0].toString() },
+  const paths = (await getBooks()).map((ent) => ({
+    params: { book: ent.name.split(`.`)[0].toString() },
   }));
 
   return {

@@ -8,7 +8,7 @@ type Props = {
   content: any;
 };
 
-export const NoteItem: React.FC<Props> = ({ meta, content }) => {
+export const NoteContent: React.FC<Props> = ({ meta, content }) => {
   return (
     <>
       <Link href="/notes">
