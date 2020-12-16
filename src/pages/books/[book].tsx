@@ -31,6 +31,7 @@ export default function Book({ markup, meta }) {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const bookId = ctx.params.book as string;
+  console.log(`Building page: ${bookId}`);
   const mdxSource = await fs.promises.readFile(
     path.join(process.cwd(), `content/books`, `${bookId}.mdx`),
     `utf-8`,
