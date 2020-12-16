@@ -35,3 +35,5 @@ export async function getBookList(): Promise<BookMetadata[]> {
     }),
   );
 }
+
+export {};

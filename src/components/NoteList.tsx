@@ -20,7 +20,7 @@ export const NoteList: React.FC<Props> = ({ notes, tags }) => {
               <div>
                 <Date date={note.published} />
               </div>
-              <Link href={`/notes/page/${note.slug}`}>
+              <Link href={`/notes/${note.slug}`}>
                 <a className="text-xl font-bold hover:text-purple-500">
                   {note.title}
                 </a>

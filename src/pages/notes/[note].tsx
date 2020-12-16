@@ -33,7 +33,8 @@ export default function Note({ markup, meta }) {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const noteId = ctx.params.page as string;
+  const noteId = ctx.params.note as string;
+  console.log(`Build page: `, noteId);
   const mdxSource = await fs.promises.readFile(
     path.join(process.cwd(), `content/notes`, `${noteId}.mdx`),
     `utf-8`,
@@ -53,7 +54,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = (await getNotes()).map((ent) => ({
-    params: { page: ent.name.split(`.`)[0].toString() },
+    params: { note: ent.name.split(`.`)[0].toString() },
   }));
 
   return {
