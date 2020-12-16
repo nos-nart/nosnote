@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import grayMatter from 'gray-matter';
 
+export default undefined;
+
 interface NoteMetadata {
   slug: string;
   title: string;
