@@ -69,7 +69,7 @@ module.exports = {
         {
           '@font-face': {
             fontFamily: `Rubik`,
-            src: `url("/fonts/Padauk-Regular.ttf")`,
+            src: `url("/fonts/Rubik-Italic.ttf")`,
             fontStyle: `italic`,
             fontWeight: `400`,
             fontDisplay: `swap`,
