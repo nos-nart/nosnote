@@ -17,4 +17,4 @@
 - [ ] add animation - framer
 - [ ] deploy
 
-![alt text](http://url/to/img.png)
+![screenshot](https://github.com/nos-nart/nosnote/blob/master/nosnote.png)
