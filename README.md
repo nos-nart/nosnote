@@ -15,6 +15,7 @@
 - [x] dark mode
 - [ ] reaction - faunadb
 - [ ] add animation - framer
-- [ ] deploy
+- [ ] responsive
+- [x] deploy
 
 ![screenshot](https://github.com/nos-nart/nosnote/blob/master/nosnote.png)
