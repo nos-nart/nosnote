@@ -13,8 +13,8 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-header-light dark:bg-header-dark">
-        <nav className="max-w-6xl m-auto flex justify-between p-2">
+      <header className="sticky top-0 z-50 bg-header-light dark:bg-header-dark border-b border-solid border-gray-200 dark:border-gray-700">
+        <nav className="lg:px-24 md:px-12 sm:px-6 px-2 flex justify-between items-center h-20">
           <Link href="/">
             <a>
               <Logo className="w-16 h-16 cursor-pointer" />

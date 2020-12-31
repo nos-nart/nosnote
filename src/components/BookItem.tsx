@@ -27,7 +27,7 @@ export const BookItem: React.FC<Props> = ({ book }) => {
             <span>
               {book.finishDate
                 ? dayjs(book.finishDate).format(`MMMM D, YYYY`)
-                : `...`}
+                : `reading...`}
             </span>
           </p>
         </div>

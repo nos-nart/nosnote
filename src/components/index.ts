@@ -13,3 +13,4 @@ export * from './Bio';
 export * from './BookItem';
 export * from './ToolItem';
 export * from './ClientOnlyPortal';
+export * from './Footer';

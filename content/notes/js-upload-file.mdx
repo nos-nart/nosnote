@@ -1,0 +1,62 @@
+---
+title: '📃 vanilla js upload file'
+published: '2020-12-28'
+tags:
+  - javascript
+---
+
+### 📥 drag drop file
+
+[code](https://github.com/nos-nart/nos-file-upload-experiment/blob/master/drag-drop/index.html)
+
+`html`
+
+```html
+<div id="drop-zone" class="border border-dashed border-gray-300 flex items-center justify-center h-40 w-full">
+  <div class="flex flex-col items-center">
+    <svg class="w-10 h-10" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+      stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+      <path d="M13 13l6 6"></path>
+    </svg>
+    <span id="file-name">drop here</span>
+  </div>
+</div>
+<div id="preview"></div>
+```
+
+`javascript`
+```javascript
+function preventDefaults (e) {
+  e.preventDefault()
+  e.stopPropagation()
+}
+
+function highlight(e) {
+  $ELE.DROP_ZONE.classList.add('bg-blue-200')
+}
+
+function unhighlight(e) {
+  $ELE.DROP_ZONE.classList.remove('bg-blue-200')
+}
+
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  $ELE.DROP_ZONE.addEventListener(eventName, preventDefaults, false);
+})
+
+$ELE.DROP_ZONE.addEventListener('dragenter', highlight, false)
+$ELE.DROP_ZONE.addEventListener('dragover', highlight, false)
+$ELE.DROP_ZONE.addEventListener('dragleave', unhighlight, false)
+$ELE.DROP_ZONE.addEventListener('drop', unhighlight, false)
+$ELE.DROP_ZONE.addEventListener('drop', onDrop, false);
+
+function onDrop(evt) {
+  console.log('evt: ', evt);
+  let dt = evt.dataTransfer;
+  let files = dt.files;
+  let img = document.createElement('img');
+  const objectURL = window.URL.createObjectURL(files[0]);
+  img.src = objectURL;
+  $ELE.PREVIEW.appendChild(img);
+}
+```

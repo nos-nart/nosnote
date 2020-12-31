@@ -29,13 +29,13 @@ export const NoteList: React.FC<Props> = ({ notes, tags }) => {
           ))}
         </div>
       </div>
-      <ul className="ml-8 w-32 flex flex-col p-4">
+      {/* <ul className="ml-8 w-32 flex flex-col p-4">
         {tags.map((tag, index) => (
           <Link key={index} href={`/notes/tags/${tag}`}>
             <a className="hover:text-purple-500">{`# ${tag}`}</a>
           </Link>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
