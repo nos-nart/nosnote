@@ -18,7 +18,7 @@ export const BookContent: React.FC<Props> = ({ meta, content }) => {
           <span>Back to books</span>
         </a>
       </Link>
-      <article className="flex flex-col items-start">
+      <article className="flex flex-col items-start leading-7">
         <h3 className="text-purple-500">{meta.title}</h3>
         <div className="flex flex-wrap">
           {meta.tags.map((tag, index) => (

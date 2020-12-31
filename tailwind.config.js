@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        rubik: [`Rubik`, ...defaultTheme.fontFamily.sans]
+        josefin: [`JosefinSans`, ...defaultTheme.fontFamily.sans]
       },
       boxShadow: {
         dark: `rgba(14, 255, 77, 0.5) 3px 0px 22px`,
@@ -50,8 +50,8 @@ module.exports = {
       addBase([
         {
           '@font-face': {
-            fontFamily: `Rubik`,
-            src: `url("/fonts/Rubik-Light.ttf")`,
+            fontFamily: `JosefinSans`,
+            src: `url("/fonts/JosefinSans-Light.ttf")`,
             fontStyle: `light`,
             fontWeight: `300`,
             fontDisplay: `swap`,
@@ -59,8 +59,8 @@ module.exports = {
         },
         {
           '@font-face': {
-            fontFamily: `Rubik`,
-            src: `url("/fonts/Rubik-Regular.ttf")`,
+            fontFamily: `JosefinSans`,
+            src: `url("/fonts/JosefinSans-Regular.ttf")`,
             fontStyle: `normal`,
             fontWeight: `400`,
             fontDisplay: `swap`,
@@ -68,8 +68,8 @@ module.exports = {
         },
         {
           '@font-face': {
-            fontFamily: `Rubik`,
-            src: `url("/fonts/Rubik-Italic.ttf")`,
+            fontFamily: `JosefinSans`,
+            src: `url("/fonts/JosefinSans-Italic.ttf")`,
             fontStyle: `italic`,
             fontWeight: `400`,
             fontDisplay: `swap`,
@@ -77,8 +77,8 @@ module.exports = {
         },
         {
           '@font-face': {
-            fontFamily: `Rubik`,
-            src: `url("/fonts/Rubik-Bold.ttf")`,
+            fontFamily: `JosefinSans`,
+            src: `url("/fonts/JosefinSans-Bold.ttf")`,
             fontStyle: `bold`,
             fontWeight: `600`,
             fontDisplay: `swap`,
