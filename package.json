@@ -48,7 +48,6 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "rehype": "11.0.0",
-    "remark-code-titles": "0.1.1",
     "swr": "0.3.9",
     "tailwindcss": "2.0.1",
     "yaml-loader": "0.6.0"

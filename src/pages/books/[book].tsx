@@ -7,13 +7,13 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import hydrate from 'next-mdx-remote/hydrate';
 import matter from 'gray-matter';
-import mdxOptions from '@/lib/mdxOptions';
 import renderToString from 'next-mdx-remote/render-to-string';
+import mdxPrism from 'mdx-prism';
 
 export default function Book({ markup, meta }) {
   const router = useRouter();
 
-  const content = hydrate(markup, {});
+  const content = hydrate({ ...markup }, {});
 
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
@@ -31,7 +31,7 @@ export default function Book({ markup, meta }) {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const bookId = ctx.params.book as string;
-  console.log(`Building page: ${bookId}`);
+
   const mdxSource = await fs.promises.readFile(
     path.join(process.cwd(), `content/books`, `${bookId}.mdx`),
     `utf-8`,
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { content, data } = matter(mdxSource);
   const markup = await renderToString(content, {
     scope: data,
-    mdxOptions,
+    mdxOptions: { rehypePlugins: [mdxPrism] },
   });
   return {
     props: {

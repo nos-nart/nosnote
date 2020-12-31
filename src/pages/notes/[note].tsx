@@ -7,8 +7,8 @@ import useSWR from 'swr';
 import { getNotes } from '@/utils/notes';
 import hydrate from 'next-mdx-remote/hydrate';
 import matter from 'gray-matter';
-import mdxOptions from '@/lib/mdxOptions';
 import renderToString from 'next-mdx-remote/render-to-string';
+import mdxPrism from 'mdx-prism';
 
 const fetcher = (url: RequestInfo, options: RequestInit) =>
   fetch(url, options).then((res) => res.json());
@@ -16,7 +16,7 @@ const fetcher = (url: RequestInfo, options: RequestInit) =>
 export default function Note({ markup, meta }) {
   const router = useRouter();
 
-  const content = hydrate(markup, {});
+  const content = hydrate({ ...markup }, {});
 
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
@@ -34,7 +34,7 @@ export default function Note({ markup, meta }) {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const noteId = ctx.params.note as string;
-  console.log(`Build page: `, noteId);
+
   const mdxSource = await fs.promises.readFile(
     path.join(process.cwd(), `content/notes`, `${noteId}.mdx`),
     `utf-8`,
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { content, data } = matter(mdxSource);
   const markup = await renderToString(content, {
     scope: data,
-    mdxOptions,
+    mdxOptions: { rehypePlugins: [mdxPrism] },
   });
   return {
     props: {
