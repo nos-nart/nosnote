@@ -15,7 +15,7 @@ export const Bio: React.FC = () => {
         <motion.div
           animate={{ rotate: 20 }}
           transition={{
-            repeat: 20,
+            repeat: Infinity,
             repeatType: `reverse`,
             duration: 0.3,
             delay: 1,

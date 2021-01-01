@@ -19,7 +19,7 @@ export default function Books({ books }) {
       <h3 className="text-blue-500 font-bold mt-6">
         Books I&#39;ve read <Emoji symbol="📚" />
       </h3>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
         {books.map((book, index: number) => (
           <BookItem key={index} book={book} />
         ))}

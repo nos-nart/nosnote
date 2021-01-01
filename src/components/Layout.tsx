@@ -1,12 +1,14 @@
 import React from 'react';
 import { Header } from './Header';
 import { Navigation } from './Navigation';
+import { MobileNav } from './MobileNav';
 
 export const Layout: React.FC = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <Navigation />
+      <MobileNav />
       <div className="w-full max-w-4xl mt-20 flex flex-1 xl:ml-80 ml-auto mr-auto">
         <div className="lg:px-12 md:px-6 px-2 w-full">{children}</div>
       </div>

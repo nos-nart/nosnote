@@ -17,7 +17,7 @@ export const NoteContent: React.FC<Props> = ({ meta, content }) => {
           <span>Back to notes</span>
         </a>
       </Link>
-      <article className="markdown-body leading-7">
+      <article className="markdown-body leading-7 mb-24">
         <div className="my-6 flex justify-between">
           <div>
             <h1 className="text-2xl text-purple-500">{meta.title}</h1>
