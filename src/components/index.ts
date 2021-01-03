@@ -15,4 +15,4 @@ export * from './ToolItem';
 export * from './ClientOnlyPortal';
 export * from './Footer';
 export * from './MobileNav';
-export * from './Code';
+export * from './CodeBlock';

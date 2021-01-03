@@ -1,4 +1,4 @@
-import { Seo, NoteContent, Code } from '@/components';
+import { Seo, NoteContent, CodeBlock } from '@/components';
 import fs from 'fs';
 import path from 'path';
 import { GetStaticProps, GetStaticPaths } from 'next';
@@ -10,7 +10,7 @@ import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import mdxPrism from 'mdx-prism';
 
-const components = { Code };
+const components = { CodeBlock };
 
 const fetcher = (url: RequestInfo, options: RequestInit) =>
   fetch(url, options).then((res) => res.json());
