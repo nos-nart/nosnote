@@ -50,7 +50,7 @@
     "react-dom": "17.0.1",
     "rehype": "11.0.0",
     "swr": "0.3.9",
-    "tailwindcss": "2.0.1",
+    "tailwindcss": "2.0.2",
     "yaml-loader": "0.6.0"
   },
   "devDependencies": {
