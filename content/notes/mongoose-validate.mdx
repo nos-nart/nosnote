@@ -5,14 +5,12 @@ tags:
   - javascript
 ---
 
-### 🦡 Mongoose validation
-
 #### Built-in validators
 
 Mongoose has several built-in validators.
-+ All SchemaTypes have the built-in required validator. The required validator uses the SchemaType's `checkRequired()` function to determine if the value satisfies the required validator.
-+ Numbers have `min` and `max` validators.
-+ Strings have `enum`, `match`, `minLength`, and `maxLength` validators.
+- All SchemaTypes have the built-in required validator. The required validator uses the SchemaType's `checkRequired()` function to determine if the value satisfies the required validator.
+- Numbers have `min` and `max` validators.
+- Strings have `enum`, `match`, `minLength`, and `maxLength` validators.
 
 ```js
 const breakfastSchema = new Schema({
