@@ -1,0 +1,79 @@
+---
+title: '🦡 Mongoose validation'
+published: '2021-01-05'
+tags:
+  - javascript
+---
+
+### 🦡 Mongoose validation
+
+#### Built-in validators
+
+Mongoose has several built-in validators.
++ All SchemaTypes have the built-in required validator. The required validator uses the SchemaType's `checkRequired()` function to determine if the value satisfies the required validator.
++ Numbers have `min` and `max` validators.
++ Strings have `enum`, `match`, `minLength`, and `maxLength` validators.
+
+```js
+const breakfastSchema = new Schema({
+  breads: {
+    type: Number,
+    validate: {
+      validator: function (value) {
+        return value > 2;
+      },
+      message: 'Not enough!',
+    }
+  },
+  eggs: {
+    type: Number,
+    min: [6, 'Too few eggs'],
+    max: 12
+  },
+  bacon: {
+    type: Number,
+    required: [true, 'Why no bacon?']
+  },
+  drink: {
+    type: String,
+    enum: ['Coffee', 'Tea'],
+    required: function() {
+      return this.bacon > 3;
+    }
+  },
+});
+
+const Breakfast = db.model('Breakfast', breakfastSchema);
+
+const myBreakfast = new Breakfast({
+  breads: 1,         // show following error message 'Not enough!'
+  eggs: 2,
+  bacon: 0,
+  drink: 'Liquor'
+})
+```
+
+#### Custom validators
+
+```js
+var validateEmail = function(email) {
+  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email)
+};
+
+var EmailSchema = new Schema({
+  email: {
+    type: String,
+    trim: true,
+    lowercase: true,
+    unique: true,
+    required: 'Email address is required',
+    validate: [validateEmail, 'Please fill a valid email address'],
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+  }
+});
+```
+
+
+
+
