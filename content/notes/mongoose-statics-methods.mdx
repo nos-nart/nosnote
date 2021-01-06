@@ -1,0 +1,29 @@
+---
+title: '🦡 Mongoose Methods and Statics'
+published: '2021-01-06'
+tags:
+  - mongoose
+---
+
+### What is the differences
+
++ **STATICS** are the methods defined on the Model. 
++ **METHODS** are defined on the document (instance).
+
+You might use a `static` method like `Animal.findByName`:
+
+```js
+const fido = await Animal.findByName('fido');
+// fido => { name: 'fido', type: 'dog' }
+```
+
+And you might use an instance method like `fido.findSimilarTypes`:
+
+```js
+const dogs = await fido.findSimilarTypes();
+// dogs => [ {name:'fido',type:'dog} , {name:'sheeba',type:'dog'} ]
+```
+
+But you wouldn't do `Animals.findSimilarTypes()` because `Animals` is a model, it has no "type". `findSimilarTypes` needs a `this.type` which wouldn't exist in `Animals` model, only a document instance would contain that property, as defined in the model.
+
+Similarly you wouldn't do `fido.findByName` because `findByName` would need to search through all documents and fido is just a document.
