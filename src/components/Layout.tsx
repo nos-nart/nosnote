@@ -30,8 +30,9 @@ export const Layout: React.FC = ({ children }) => {
         p > code {
           background: #282a36;
           color: #fff;
-          padding: 2px 10px;
-          border-radius: 3px;
+          padding: 2px 5px;
+          border-radius: 2px;
+          border: 1px solid #6d6d6d;
         }
 
         .side-nav {
