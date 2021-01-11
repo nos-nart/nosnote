@@ -15,5 +15,5 @@
 - [x] dark mode
 - [ ] reaction - faunadb
 - [ ] add animation - framer
-- [ ] responsive
+- [x] responsive
 - [x] deploy
