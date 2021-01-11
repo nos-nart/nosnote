@@ -1,0 +1,40 @@
+---
+title: '🗾 Create topojson file for interactive mapping'
+published: '2021-01-011'
+tags:
+  - javascript
+---
+
+[Original post](https://medium0.com/hackernoon/how-to-convert-and-prepare-topojson-files-for-interactive-mapping-with-d3-499cf0ced5f)
+
+### World maps
+One of the first maps you may want to get your hands on is the world map. A great resource for this is [Natural Earth](http://www.naturalearthdata.com/downloads), a public domain map dataset available at 1:10m, 1:50m, and 1:100 million scales. For each scale (level of detail), Natural Earth provides cultural, physical, and raster maps.
+
+#### Step 1 — Getting a map
+Select your preferred map according to level of detail (1:10m, 1:50m, and 1:100m) and category (cultural, physical and raster). When building maps for the web the level of detail is important as it will impact file size and rendering speed significantly, especially when rendering maps with **SVG**.
+
+To create world maps based on country data (GDP, population, etc.) you should **choose the cultural vectors**. In the next steps I will create a TopoJSON map based on the 1:50m cultural vectors Admin 0 countries map.
+
+#### Step 2 — Choosing what to use
+The downloaded folder will contain a number of files with different extensions such as .dbf, .prj, .shp, and .shx. To convert the shapefile into TopoJSON, you will need the .shp file, as well as a .dbf file (in case it’s available).
+
+#### Step 3 — Import the shapefiles into mapshaper
+To convert shapefiles into TopoJSON, you can use [mapshaper](https://mapshaper.org/), a tool for shape simplification and conversion from one geo format to another. It supports Shapefiles, GeoJSON and TopoJSON formats. While mapshaper can be used on the commandline, the online tool also provides a nice visual interface for the simplification process.
+
+Import the files ending in .shp and .dbf into mapshaper. Make sure that the “detect line intersections” option is checked. You can also check “snap vertices” to fix topology errors.
+
+#### Step 4 — Optional step: Simplify your map
+The simplify option allows you to adjust the level of detail by dragging a slider. The more you simplify the less precision and detail you will have in your final map. A simplified map will be smaller and often simplifying a map (sometimes even by 50%) will not result in any visible loss of detail.
+
+#### Step 5 — Exporting your TopoJSON map
+Once you are happy with the level of detail on your map, export your map as a TopoJSON file. You’re done!
+
+### Country level and lower administrative level maps
+
+World maps are great, but sometimes you want to visualize a more detailed view of a particular region, country, or even a more specific administrative area. If you are doing non-commercial work, one great resource for individual country shapefiles is the [Global Administrative Areas website](https://gadm.org/download_country_v3.html).
+
+The site offers maps in a number of formats. Make sure to choose shapefile as a format when downloading the files from [here](https://gadm.org/download_country_v3.html).
+
+Once you unzip the downloaded files, you will have multiple sets of shapefiles (admin0, admin1, admin2… etc). These represent the [different administrative divisions](https://en.wikipedia.org/wiki/Administrative_division). Using the United States as an example, admin0 would refer to the country, admin1 to the individual states, admin2 to counties etc.
+
+Once you decide which level to choose, you can repeat steps 2–5, just like with the world map.
