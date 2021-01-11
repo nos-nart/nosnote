@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ExternalLink } from '.';
+import { ExternalLinkIcon } from '.';
 
 type Props = {
   url: string;
@@ -30,7 +30,7 @@ export const ToolItem: React.FC<Props> = ({ url, name, image }) => {
             layout="responsive"
           />
           <span className="mt-2 text-xs">{name}</span>
-          <ExternalLink className="w-4 h-4 ml-2 absolute top-1 right-1" />
+          <ExternalLinkIcon className="w-4 h-4 ml-2 absolute top-1 right-1" />
         </a>
       </Link>
     </motion.div>

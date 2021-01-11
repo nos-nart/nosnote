@@ -2,7 +2,7 @@ type Props = {
   className?: string;
 };
 
-export const ExternalLink: React.FC<Props> = (props) => (
+export const ExternalLinkIcon: React.FC<Props> = (props) => (
   <svg
     {...props}
     stroke="currentColor"

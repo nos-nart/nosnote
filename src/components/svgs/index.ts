@@ -1,5 +1,5 @@
 export * from './Logo';
 export * from './GithubLogo';
 export * from './ArrowLeft';
-export * from './ExternalLink';
+export * from './ExternalLinkIcon';
 export * from './CloseIcon';
