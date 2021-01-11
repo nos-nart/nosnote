@@ -2,7 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
 import React from 'react';
-import { ArrowLeft } from '.';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Emoji } from '.';
 
 type Props = {
   meta: any;
@@ -10,6 +11,16 @@ type Props = {
 };
 
 export const BookContent: React.FC<Props> = ({ meta, content }) => {
+  const pw = React.useRef(null);
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [isPermitted, setIsPermitted] = React.useState(false);
+
+  const onCheckingPermission = (): void => {
+    if (process.env.SECRET_PASSWORD === pw.current.value) {
+      setIsPermitted(true);
+    }
+  };
+
   return (
     <>
       <Link href="/books">
@@ -26,7 +37,41 @@ export const BookContent: React.FC<Props> = ({ meta, content }) => {
           ))}
         </div>
         <hr />
-        {content}
+        {isPermitted ? (
+          content
+        ) : (
+          <p>
+            Thứ nhất là nói chuyện phải chân thành 🙇🏻 <br />
+            Thứ hai là phải lắng nghe bằng trái tim ❤️
+          </p>
+        )}
+        {!showPassword && (
+          <button
+            className="focus:outline-none font-bold hover:text-green-500"
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            Read more...
+          </button>
+        )}
+        {showPassword && !isPermitted && (
+          <div className="flex my-2">
+            <input
+              ref={pw}
+              placeholder="where is your key?"
+              type="password"
+              className="px-2 border border-solid border-gray-300 rounded focus:outline-none"
+            />
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="transition-all duration-150 ml-2 px-2 focus:outline-none bg-green-500 text-white rounded"
+              type="button"
+              onClick={() => onCheckingPermission()}
+            >
+              <Emoji symbol="👇" />
+            </motion.button>
+          </div>
+        )}
       </article>
     </>
   );

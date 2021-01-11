@@ -12,7 +12,7 @@ Mongoose has several built-in validators.
 - Numbers have `min` and `max` validators.
 - Strings have `enum`, `match`, `minLength`, and `maxLength` validators.
 
-```js
+<CodeBlock language="js">{`
 const breakfastSchema = new Schema({
   breads: {
     type: Number,
@@ -40,25 +40,22 @@ const breakfastSchema = new Schema({
     }
   },
 });
-
 const Breakfast = db.model('Breakfast', breakfastSchema);
-
 const myBreakfast = new Breakfast({
   breads: 1,         // show following error message 'Not enough!'
   eggs: 2,
   bacon: 0,
   drink: 'Liquor'
-})
-```
+}
+`}</CodeBlock>
 
 #### Custom validators
 
-```js
+<CodeBlock language="js">{`
 var validateEmail = function(email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email)
 };
-
 var EmailSchema = new Schema({
   email: {
     type: String,
@@ -70,7 +67,7 @@ var EmailSchema = new Schema({
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   }
 });
-```
+`}</CodeBlock>
 
 
 

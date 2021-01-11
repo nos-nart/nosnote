@@ -11,7 +11,7 @@ tags:
 
 `html`
 
-```html
+<CodeBlock language="html">{`
 <div id="drop-zone" class="border border-dashed border-gray-300 flex items-center justify-center h-40 w-full">
   <div class="flex flex-col items-center">
     <svg class="w-10 h-10" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
@@ -23,33 +23,30 @@ tags:
   </div>
 </div>
 <div id="preview"></div>
-```
+`}</CodeBlock>
 
 `javascript`
-```javascript
+<CodeBlock language="js">{`
 function preventDefaults (e) {
   e.preventDefault()
   e.stopPropagation()
 }
-
 function highlight(e) {
   $ELE.DROP_ZONE.classList.add('bg-blue-200')
 }
-
 function unhighlight(e) {
   $ELE.DROP_ZONE.classList.remove('bg-blue-200')
 }
-
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   $ELE.DROP_ZONE.addEventListener(eventName, preventDefaults, false);
 })
-
+// add event listener
 $ELE.DROP_ZONE.addEventListener('dragenter', highlight, false)
 $ELE.DROP_ZONE.addEventListener('dragover', highlight, false)
 $ELE.DROP_ZONE.addEventListener('dragleave', unhighlight, false)
 $ELE.DROP_ZONE.addEventListener('drop', unhighlight, false)
 $ELE.DROP_ZONE.addEventListener('drop', onDrop, false);
-
+// drop file event
 function onDrop(evt) {
   console.log('evt: ', evt);
   let dt = evt.dataTransfer;
@@ -59,4 +56,4 @@ function onDrop(evt) {
   img.src = objectURL;
   $ELE.PREVIEW.appendChild(img);
 }
-```
+`}</CodeBlock>
