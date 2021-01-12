@@ -29,9 +29,9 @@ export const Bio: React.FC = () => {
         <div className="col-span-4 md:mb-0 mb-20 text-xs">
           <CodeBlock language="js">{`
 const nosnart = {
-  pronouns: "nát 😕",
-  currentLocation: "Hanoi, Viet Nam",
-  code: "javascript",
+  pronouns 🎤: "nát 😕",
+  currentLocation 🗺: [21.0278, 105.8342],
+  code 💻: "javascript",
   technologies: {
     frontend: {
       js: [ "react", "redux" ],
@@ -43,7 +43,7 @@ const nosnart = {
     database: ["mongoDB"],
   },
   describe: [ "introvert", "long-life learner", "perfectionist" ],
-  love: [ "history", "reading book", "chinese" ]
+  love ❤️: [ "family", "history", "english | chinese" ]
 }
           `}</CodeBlock>
         </div>
