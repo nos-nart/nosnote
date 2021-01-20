@@ -1,5 +1,7 @@
 # note site
 
+**Give me a ⭐️ if you found this helpful**
+
 ## stack
 + nextjs
 + framer-motion
