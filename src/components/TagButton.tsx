@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const TagButton: React.FC<Props> = ({ name }) => {
-  const [background, setBackground] = React.useState(``);
+  const [background, setBackground] = React.useState<string>(``);
   React.useEffect(() => {
     setBackground(`bg-${name}`);
   }, []);
