@@ -1591,12 +1591,17 @@ JSONStream@^1.0.4:
     jsonparse "^1.2.0"
     through ">=2.2.7 <3"
 
-abort-controller@3.0.0, abort-controller@^3.0.0:
+abort-controller@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/abort-controller/-/abort-controller-3.0.0.tgz#eaf54d53b62bae4138e809ca225c8439a6efb392"
   integrity sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==
   dependencies:
     event-target-shim "^5.0.0"
+
+abortcontroller-polyfill@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/abortcontroller-polyfill/-/abortcontroller-polyfill-1.7.1.tgz#27084bac87d78a7224c8ee78135d05df430c2d2f"
+  integrity sha512-yml9NiDEH4M4p0G4AcPkg8AAa4mF3nfYF28VQxaokpO67j9H7gWgmsVWJ/f1Rn+PzsnDYvzJzWIQzCqDKRvWlA==
 
 acorn-jsx@^5.2.0:
   version "5.3.1"
@@ -3864,12 +3869,12 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-faunadb@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.0.0.tgz#5fd922b811bd40154e3b5234f39cac512f464f51"
-  integrity sha512-tXiGthGdbInZ6hzdmGFxnxqsQe2mKq+pnOc+zHZYXtD8TDgKWpK0F9M0tmRpD0uoQUrBHzXU7hxE24pJJxPdbQ==
+faunadb@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.0.2.tgz#55567e8483e4c69d09f295e619a4c19ebd59ebe1"
+  integrity sha512-YE+pvchQcH+kYCobywpV3LO3ZOWWrunu7DTNHFW2eT1SCECE+uOuHz7sFcA3vmxhcYvBpZ7mVTnrTFfZdH5LqQ==
   dependencies:
-    abort-controller "^3.0.0"
+    abortcontroller-polyfill "^1.7.1"
     base64-js "^1.2.0"
     btoa-lite "^1.0.0"
     cross-fetch "^3.0.6"
