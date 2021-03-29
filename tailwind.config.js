@@ -21,7 +21,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        josefin: [`JosefinSans`, ...defaultTheme.fontFamily.sans]
+        inter: [`Inter`, ...defaultTheme.fontFamily.sans]
       },
       boxShadow: {
         dark: `rgba(14, 255, 77, 0.5) 3px 0px 22px`,
@@ -57,8 +57,8 @@ module.exports = {
       addBase([
         {
           '@font-face': {
-            fontFamily: `JosefinSans`,
-            src: `url("/fonts/JosefinSans-Light.ttf")`,
+            fontFamily: `Inter`,
+            src: `url("/fonts/Inter-Light.ttf")`,
             fontStyle: `light`,
             fontWeight: `300`,
             fontDisplay: `swap`,
@@ -66,8 +66,8 @@ module.exports = {
         },
         {
           '@font-face': {
-            fontFamily: `JosefinSans`,
-            src: `url("/fonts/JosefinSans-Regular.ttf")`,
+            fontFamily: `Inter`,
+            src: `url("/fonts/Inter-Regular.ttf")`,
             fontStyle: `normal`,
             fontWeight: `400`,
             fontDisplay: `swap`,
@@ -75,22 +75,13 @@ module.exports = {
         },
         {
           '@font-face': {
-            fontFamily: `JosefinSans`,
-            src: `url("/fonts/JosefinSans-Italic.ttf")`,
-            fontStyle: `italic`,
-            fontWeight: `400`,
-            fontDisplay: `swap`,
-          }
-        },
-        {
-          '@font-face': {
-            fontFamily: `JosefinSans`,
-            src: `url("/fonts/JosefinSans-Bold.ttf")`,
+            fontFamily: `Inter`,
+            src: `url("/fonts/Inter-Bold.ttf")`,
             fontStyle: `bold`,
-            fontWeight: `600`,
+            fontWeight: `700`,
             fontDisplay: `swap`,
           }
-        },
+        }
       ])
     },
   ],
