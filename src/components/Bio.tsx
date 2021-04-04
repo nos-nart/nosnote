@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Emoji } from './Emoji';
 import { CodeBlock } from './CodeBlock';
 
-export const Bio: React.FC = () => {
+export const Bio = (): JSX.Element => {
   return (
     <>
       <h2 className="-mt-12 text-purple-500 flex">
@@ -31,19 +31,12 @@ export const Bio: React.FC = () => {
 const nosnart = {
   pronouns 🎤: "nát 😕",
   currentLocation 🗺: [21.0278, 105.8342],
-  code 💻: "javascript",
+  languages : ['vietnamese', 'english', 'javascript'],
   technologies: {
-    frontend: {
-      js: [ "react", "redux" ],
-      css: [ "tailwind", "antd", "sass" ]
-    },
-    backend: {
-      js: [ "node.js", "express.js" ]
-    },
-    database: ["mongoDB"],
+    frontend: ['react', 'angular', 'redux', 'tailwindcss'],
+    backend: ['expressjs', 'firebase', 'mongodb']
   },
-  describe: [ "introvert", "long-life learner", "perfectionist" ],
-  love ❤️: [ "family", "history", "english | chinese" ]
+  describe: [ "oriented", "long-life learner", "perfectionist" ]
 }
           `}</CodeBlock>
         </div>

@@ -5,12 +5,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Emoji } from '.';
 
-type Props = {
+type BookContentProps = {
   meta: any;
   content: any;
 };
 
-export const BookContent: React.FC<Props> = ({ meta, content }) => {
+export const BookContent: React.FC<BookContentProps> = ({ meta, content }) => {
   const pw = React.useRef(null);
   const [showPassword, setShowPassword] = React.useState(false);
   const [isPermitted, setIsPermitted] = React.useState(false);

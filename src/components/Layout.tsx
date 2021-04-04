@@ -28,7 +28,7 @@ export const Layout: React.FC = ({ children }) => {
         }
 
         p > code {
-          background: #3ab667;
+          background: #374151;
           color: #fff;
           padding: 2px 5px;
           border-radius: 2px;
