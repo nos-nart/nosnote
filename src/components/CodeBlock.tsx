@@ -7,9 +7,9 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 type CodeBlockProps = {
   children: string;
-  language: any;
-  title: string;
-  highlightLines: string;
+  language?: any;
+  title?: string;
+  highlightLines?: string;
 };
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({
