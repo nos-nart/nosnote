@@ -50,7 +50,7 @@ export const MobileNav: React.FC = () => {
         }
 
         .active {
-          border-top: 2px solid #7c3aed;
+          border-top: 5px solid #7c3aed;
         }
       `}</style>
     </>

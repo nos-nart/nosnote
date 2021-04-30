@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import '../styles/index.css';
-import '../styles/prism-theme.css';
 import { Layout, ThemeProvider } from '@/components';
 // import { AnimatePresence } from 'framer-motion';
 

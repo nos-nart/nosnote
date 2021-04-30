@@ -1,0 +1,88 @@
+---
+title: '🛰 React authentication'
+published: '2021-04-30'
+tags:
+  - Reactjs
+---
+
+### React authentication example
+
+- Create HOC component to check  whether user is authenticated or not
+
+<CodeBlock language="jsx" title="withAuth.jsx">
+{`import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+ 
+export default function withAuth(ComponentToProtect) {
+  return class extends Component {
+    constructor() {
+      super();
+      this.state = {
+        loading: true,
+        redirect: false,
+      };
+    }
+ 
+    componentDidMount() {
+      fetch('/checkToken')
+        .then(res => {
+          if (res.status === 200) {
+            this.setState({ loading: false });
+          } else {
+            const error = new Error(res.error);
+            throw error;
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          this.setState({ loading: false, redirect: true });
+        });
+    }
+ 
+    render() {
+      const { loading, redirect } = this.state;
+      if (loading) {
+        return null;
+      }
+      if (redirect) {
+        return <Redirect to="/login" />;
+      }
+      return <ComponentToProtect {...this.props} />;
+    }
+  }
+}`}
+
+</CodeBlock>
+
+- In our app component
+
+<CodeBlock language="jsx" title="App.jsx" highlightLines="19">
+{`import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
+import withAuth from './withAuth';
+import Home from './Home';
+import Secret from './Secret';
+import Login from './Login';
+ 
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/secret">Secret</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        </ul>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/secret" component={withAuth(Secret)} />
+          <Route path="/login" component={Login} />
+        </Switch>
+      </div>
+    );
+  }
+}
+ 
+export default App;`}
+
+</CodeBlock>

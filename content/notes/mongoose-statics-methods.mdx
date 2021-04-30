@@ -14,6 +14,7 @@ You might use a `static` method like `Animal.findByName`:
 
 <CodeBlock language="js">{`
 const fido = await Animal.findByName('fido');
+ 
 // fido => { name: 'fido', type: 'dog' }
 `}</CodeBlock>
 
@@ -21,6 +22,7 @@ And you might use an instance method like `fido.findSimilarTypes`:
 
 <CodeBlock language="js">{`
 const dogs = await fido.findSimilarTypes();
+ 
 // dogs => [ {name:'fido',type:'dog} , {name:'sheeba',type:'dog'} ]
 `}</CodeBlock>
 

@@ -31,21 +31,26 @@ function preventDefaults (e) {
   e.preventDefault()
   e.stopPropagation()
 }
+ 
 function highlight(e) {
   $ELE.DROP_ZONE.classList.add('bg-blue-200')
 }
+ 
 function unhighlight(e) {
   $ELE.DROP_ZONE.classList.remove('bg-blue-200')
 }
+ 
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   $ELE.DROP_ZONE.addEventListener(eventName, preventDefaults, false);
 })
+ 
 // add event listener
 $ELE.DROP_ZONE.addEventListener('dragenter', highlight, false)
 $ELE.DROP_ZONE.addEventListener('dragover', highlight, false)
 $ELE.DROP_ZONE.addEventListener('dragleave', unhighlight, false)
 $ELE.DROP_ZONE.addEventListener('drop', unhighlight, false)
 $ELE.DROP_ZONE.addEventListener('drop', onDrop, false);
+ 
 // drop file event
 function onDrop(evt) {
   console.log('evt: ', evt);

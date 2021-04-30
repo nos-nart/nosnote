@@ -20,26 +20,27 @@ Example of code that will not behave as expected:
 
 <br/>
 
-```js
-incrementCount() {
+<CodeBlock language="jsx">
+{`incrementCount() {
   // Note: this will *not* work as intended.
   this.setState({count: this.state.count + 1});
 }
-
+ 
 handleSomething() {
-  // Let's say `this.state.count` starts at 0.
+  // Let's say **this.state.count** starts at 0.
   this.incrementCount();
   this.incrementCount();
   this.incrementCount();
-  // When React re-renders the component, `this.state.count` will be 1, but you expected 3.
-
-  // This is because `incrementCount()` function above reads from `this.state.count`,
-  // but React doesn't update `this.state.count` until the component is re-rendered.
-  // So `incrementCount()` ends up reading `this.state.count` as 0 every time, and sets it to 1.
-
+  // When React re-renders the component, **this.state.count** will be 1, but you expected 3.
+ 
+  // This is because **incrementCount()** function above reads from **this.state.count**,
+  // but React doesn't update **this.state.count** until the component is re-rendered.
+  // So **incrementCount()** ends up reading **this.state.count** as 0 every time, and sets it to 1.
+ 
   // The fix is described below!
-}
-```
+}`}
+
+</CodeBlock>
 
 #### How do I update state with values that depend on the current state?
 
@@ -51,24 +52,25 @@ Passing an update function allows you to access the current state value inside t
 
 <br/>
 
-```js
-incrementCount() {
+<CodeBlock language="jsx">
+{`incrementCount() {
   this.setState((state) => {
-    // Important: read `state` instead of `this.state` when updating.
+    // Important: read **state** instead of **this.state** when updating.
     return {count: state.count + 1}
   });
 }
-
+ 
 handleSomething() {
-  // Let's say `this.state.count` starts at 0.
+  // Let's say this.state.count starts at 0.
   this.incrementCount();
   this.incrementCount();
   this.incrementCount();
-
-  // If you read `this.state.count` now, it would still be 0.
+ 
+  // If you read **this.state.count** now, it would still be 0.
   // But when React re-renders the component, it will be 3.
-}
-```
+}`}
+
+</CodeBlock>
 
 <ExternalLink href="https://reactjs.org/docs/react-component.html#setstate" title="Learn more about setState" />
 

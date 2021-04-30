@@ -29,3 +29,8 @@ ul li::before {
 hr {
   @apply w-full my-4;
 }
+
+code {
+  padding: 2px 3px;
+  border-radius: 2px;
+}

@@ -23,15 +23,12 @@ export const Layout: React.FC = ({ children }) => {
 
         body::-webkit-scrollbar-thumb {
           background-color: #374151;
-          border-radius: 20px;
           border: 3px solid #e5e7eb;
         }
 
         p > code {
           background: #374151;
           color: #fff;
-          padding: 2px 5px;
-          border-radius: 2px;
         }
 
         .side-nav {

@@ -40,7 +40,9 @@ const breakfastSchema = new Schema({
     }
   },
 });
+ 
 const Breakfast = db.model('Breakfast', breakfastSchema);
+ 
 const myBreakfast = new Breakfast({
   breads: 1,         // show following error message 'Not enough!'
   eggs: 2,
@@ -56,6 +58,7 @@ var validateEmail = function(email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email)
 };
+ 
 var EmailSchema = new Schema({
   email: {
     type: String,
