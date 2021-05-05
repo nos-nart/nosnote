@@ -15,6 +15,7 @@
 - [x] tools page
 - [x] books page
 - [x] dark mode
+- [ ] clipboard code
 - [ ] reaction - faunadb
 - [ ] add animation - framer
 - [x] responsive
