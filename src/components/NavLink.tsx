@@ -28,12 +28,10 @@ export const NavLink: FC<LinkProps> = ({ href, children }) => {
           content: '';
           position: absolute;
           height: 100%;
-          width: 10px;
+          width: 5px;
           background: #7c3aed;
           top: 0;
           right: -10px;
-          border-top-left-radius: 5px;
-          border-bottom-left-radius: 5px;
           transition: all 0.08s linear;
         }
 

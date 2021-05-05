@@ -34,3 +34,7 @@ code {
   padding: 2px 3px;
   border-radius: 2px;
 }
+
+pre {
+  overflow-x: scroll;
+}

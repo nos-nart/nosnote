@@ -18,8 +18,23 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   title,
   highlightLines,
 }) => {
+  const [isCopied, setIsCopied] = React.useState<boolean>(false);
+
   const lineArr =
     (highlightLines && highlightLines.split(`,`).map((i) => +i)) || [];
+
+  const copyToClipboard = (str: string): void => {
+    const el = document.createElement(`textarea`);
+    el.value = str;
+    el.setAttribute(`readonly`, ``);
+    el.style.position = `absolute`;
+    el.style.left = `-9999px`;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand(`copy`);
+    document.body.removeChild(el);
+  };
+
   return (
     <Highlight
       {...defaultProps}
@@ -29,8 +44,26 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <>
+          <div className="relative">
+            <div className="absolute -top-6 right-2 flex items-end">
+              <span className="px-2 bg-code-flag text-white font-thin rounded-t-md">
+                {language.toUpperCase()}
+              </span>
+              <button
+                type="button"
+                className="ml-2 px-2 bg-code-flag text-white font-thin rounded-t-md"
+                onClick={() => {
+                  copyToClipboard(children);
+                  setIsCopied(true);
+                  setTimeout(() => setIsCopied(false), 3000);
+                }}
+              >
+                {isCopied ? `🎉 Copied!` : `Copy 📋`}
+              </button>
+            </div>
+          </div>
           {title !== `` && (
-            <p className="w-full p-1 bg-indigo-500 text-white">{title}</p>
+            <p className="w-full p-1 bg-code-flag text-white">{title}</p>
           )}
           <pre className={className} style={style}>
             {tokens.map((line, i) => {

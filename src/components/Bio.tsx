@@ -26,7 +26,7 @@ export const Bio = (): JSX.Element => {
       </h2>
       <h2 className="text-purple-500">I&#39;m nosnart, and this is my notes</h2>
       <div className="grid sm:grid-cols-6 grid-cols-1 grid-flow-row md:grid-flow-col">
-        <div className="col-span-4 md:mb-0 mb-20 text-xs">
+        <div className="col-span-4 md:mb-0 mb-20 text-xs leading-7">
           <CodeBlock language="js">{`
 const nosnart = {
   pronouns 🎤: "nát 😕",

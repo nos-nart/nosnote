@@ -47,6 +47,7 @@ module.exports = {
         'docker': `#1890ff`,
         'javascript': `#d4b106`,
         'microservice': `#a0d911`,
+        'code-flag': `#03345b`,
       },
     },
   },
