@@ -22,7 +22,7 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
   },
   "exclude": [
     "node_modules"
@@ -31,6 +31,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/lib/mdxOptions.js"
+    "src/lib/mdxOptions.js",
   ]
 }
