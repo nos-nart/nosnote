@@ -30,11 +30,16 @@ hr {
   @apply w-full my-4;
 }
 
-code {
+article code {
   padding: 2px 3px;
   border-radius: 2px;
+  @apply bg-gray-200;
 }
 
 pre {
   overflow-x: scroll;
+}
+
+article  blockquote {
+  @apply border-l-4 border-solid border-gray-700 px-2;
 }

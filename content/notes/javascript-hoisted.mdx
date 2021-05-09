@@ -1,0 +1,70 @@
+---
+title: '🔥 Hoisting'
+published: '2021-02-22'
+tags:
+  - javascript
+---
+
+> Hoisting is JavaScript's default behavior of moving declarations to the top.
+
+Functions and variables are stored in memory for an execution context before we execute our code. This is called **hoisting**.
+
+<br/>
+
+Functions are stored with a reference to **the entire function**.
+
+<br/>
+
+<CodeBlock language="js">
+{`
+/*
+- In the memory
+name    |     value
+sum     |   <function>
+*/
+ 
+console.log(sum(1, 2));            // 3
+ 
+function sum(a, b) {
+  return a + b;
+}
+`}
+</CodeBlock>
+
+<br/>
+
+`var` keyword are stored with the default value of `undefined`.
+
+<br/>
+
+<CodeBlock language="js">
+{`
+/*
+- In the memory
+name    |     value
+age     |   undefined
+*/
+ 
+console.log(age);            // undefined
+var age = 24;
+`}
+</CodeBlock>
+
+<br/>
+
+Variables declared with the `let` or `const` keyword are stored `uninitialized`.
+
+<br/>
+
+<CodeBlock language="js">
+{`
+/*
+- In the memory
+name    |     value
+phone   |   <uninitialized>
+*/
+ 
+console.log(phone);            // Uncaught ReferenceError: Cannot access 'phone' before initialization
+let phone = '0962641742';
+`}
+</CodeBlock>

@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-header-light dark:bg-header-dark">
+      <header className="px-2 sticky top-0 z-50 bg-header-light dark:bg-header-dark">
         <nav className="flex justify-between items-center h-20">
           <Link href="/">
             <a>

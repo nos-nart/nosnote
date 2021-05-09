@@ -1,4 +1,5 @@
 import { Seo, NoteContent, ExternalLink, CodeBlock } from '@/components';
+import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import { GetStaticProps, GetStaticPaths } from 'next';
@@ -10,7 +11,7 @@ import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import mdxPrism from 'mdx-prism';
 
-const components = { ExternalLink, CodeBlock };
+const components = { ExternalLink, CodeBlock, Image };
 
 const fetcher = (url: RequestInfo, options: RequestInit) =>
   fetch(url, options).then((res) => res.json());
