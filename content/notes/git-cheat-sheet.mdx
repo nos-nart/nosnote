@@ -1,0 +1,53 @@
+---
+title: '🐙 git cheat sheet'
+published: '2021-03-01'
+tags:
+  -
+---
+
+### git squash commit
+For example you wanna squash 2 commits into one
+
+1. **reset**
+```bash
+git reset --soft HEAD~2
+git commit -m "new commit message"
+git push --force-with-lease
+```
+
+<br/>
+
+You branch `feature/A` checkout from `dev` and you have 10 commit on your branch
+```bash
+git reset origin/dev
+// Mất sạch commit, các files trở về trạng thái modified
+// branch về trạng thái như trên dev
+git status
+git add <your_modified_files>
+git commit <your_new_message>
+git push --force-with-lease
+```
+
+2. **rebase**
+```bash
+git rebase -i HEAD~2
+
+pick 71e78f7 [+] dd                   // the target commit
+squash 5e7a8d0 [+] ff                 // squash into the target
+
+# Rebase ea854db..5e7a8d0 onto ea854db (2 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+
+:wq                                   // save and quit
+
+git push --force-with-lease
+```
+

@@ -33,11 +33,11 @@ hr {
 article code {
   padding: 2px 3px;
   border-radius: 2px;
-  @apply bg-gray-200;
 }
 
 pre {
-  overflow-x: scroll;
+  overflow-x: auto;
+  @apply dark:bg-gray-700 dark:text-white bg-gray-300 text-black p-2;
 }
 
 article  blockquote {
