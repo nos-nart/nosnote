@@ -1,0 +1,96 @@
+---
+title: '🐙 Git undo'
+published: '2021-06-07'
+tags:
+  -
+---
+
+#### 🌌 Undo public change
+**Scenario:** You pushed changes to remote, you realize some problem with those changes. You wanna undo that commit
+
+```bash
+git revert <SHA>
+```
+
+It revert all changes of committed files back to the original and create a new commit that’s the opposite (or inverse) of the given SHA
+
+<br/>
+
+
+#### 🙏 Fix the last message | commit
+
+<br/>
+
+- **Not pushed commit**
+
+You did **git commit -m "[~] Fix bug #1"** and you wanna change it to **[~] Fix bug #2**
+
+```bash
+git commit --amend -m "[~] Fix bug #2"
+// Or
+git reset HEAD~
+// You can add other changes
+git add .
+git commit --amend -m "[~] Fix bug #2"
+```
+
+<br/>
+
+- **Pushed commit**
+
+```bash
+git commit --amend -m "[~] Fix bug #2"
+git push --force branch-name
+```
+
+<br/>
+
+You edit 2 files then commit 1 file to remote, you realize you have 1 file left wasn't committed
+
+```bash
+git add the_left_out_file
+git commit --amend --no-edit
+```
+
+<br/>
+
+#### Reset local changes
+
+**Scenario:** You've made some commit locally, but everything was terrible you wanna undo last three commits
+
+```bash
+git reset --hard HEAD~3   or   git reset --hard <last good SHA>
+
+// --hard          all commit and changes are deleted
+// --soft          the commit are gone but the changes still on disk
+```
+
+<br/>
+
+#### Redo after undo local
+**Scenario**: You made some commits, did a `git reset --hard` to “undo” those changes (see above), and then realized: you want those changes back!
+
+```bash
+git reflog and git reset
+//or
+git checkout
+```
+
+<br/>
+
+`git reflog` is an amazing resource for recovering project history. You can **recover almost anything—anything** you’ve committed—via the reflog.
+
+**NOTE:** Your reflog is yours and yours alone. You can’t use git reflog to restore another developer’s un-pushed commits.
+
+So… how do you use the reflog to “redo” a previously “undone” commit or commits? It depends on what exactly you want to accomplish:
+- If you want to restore the project’s history as it was at that moment in time use `git reset --hard <SHA>`
+- If you want to recreate one or more files in your working directory as they were at that moment in time, without altering history use `git checkout <SHA> -- <filename>`
+- If you want to replay exactly one of those commits into your repository use `git cherry-pick <SHA>`
+
+#### Branch in time saves nine
+**Scenario:**  You started a new branch feature based on master, but master was pretty far behind `origin/master`. Now that master branch is in sync with `origin/master`, you wish commits on feature were starting now, instead of being so far behind.
+
+```bash
+git checkout feature
+git rebase master
+```

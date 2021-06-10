@@ -10,7 +10,7 @@ export const Layout: React.FC = ({ children }) => {
       <div className="flex items-start mt-6">
         <Navigation />
         <MobileNav />
-        <div className="w-full max-w-3xl mt-20 flex flex-1 xl:ml-56 ml-auto mr-auto">
+        <div className="w-full max-w-3xl mt-4 flex flex-1 xl:ml-56 ml-auto mr-auto">
           <div className="px-2 w-full">{children}</div>
         </div>
       </div>
@@ -26,11 +26,6 @@ export const Layout: React.FC = ({ children }) => {
         body::-webkit-scrollbar-thumb {
           background-color: #374151;
           border: 3px solid #e5e7eb;
-        }
-
-        p > code {
-          background: #374151;
-          color: #fff;
         }
 
         .side-nav {

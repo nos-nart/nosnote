@@ -1,5 +1,5 @@
 ---
-title: '🐙 git cheat sheet'
+title: '🐙 Squash commit with git'
 published: '2021-03-01'
 tags:
   -
@@ -17,7 +17,7 @@ git push --force-with-lease
 
 <br/>
 
-You branch `feature/A` checkout from `dev` and you have 10 commit on your branch
+**Scenario:** You branch `feature/A` checkout from `dev`. Before create pull request into dev you wanna squash all commit of feature/A into one
 ```bash
 git reset origin/dev
 // Mất sạch commit, các files trở về trạng thái modified
@@ -29,6 +29,7 @@ git push --force-with-lease
 ```
 
 2. **rebase**
+
 ```bash
 git rebase -i HEAD~2
 
@@ -49,5 +50,27 @@ squash 5e7a8d0 [+] ff                 // squash into the target
 :wq                                   // save and quit
 
 git push --force-with-lease
+```
+
+**Scenario**: You're working on feature/A checkout from dev, with N issues arise you have N commit to your branch. You can squash your commit by **rebase**
+
+```bash
+git rebase -i dev
+
+pick 380d5e1 release feature/A
+squash 30803a6 fix iss1
+squash 30803a2 fix iss2
+squash 30803a5 fix iss3
+squash 380d5e1 fix iss4
+
+# Rebase 380d5e1..5e7a8d0 onto 380d5e1 (2 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# x, exec <command> = run command (the rest of the line) using shell
 ```
 

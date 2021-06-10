@@ -1,22 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import Image from 'next/image';
 import dayjs from 'dayjs';
-import Link from 'next/link';
 import { Emoji } from '.';
+import { BookProps } from '../utils/books';
 
-type Props = {
-  book: any;
-};
+const truncateString = (str, num) =>
+  str.length > num ? `${str.slice(0, num > 3 ? num - 3 : num)}...` : str;
 
-export const BookItem: React.FC<Props> = ({ book }) => {
+export const BookItem: React.FC<BookProps> = (book) => {
   return (
-    <Link href={`/books/${book.slug}`}>
-      <a>
-        <div className="book--item bg-white dark:bg-gray-800 rounded shadow hover:shadow-lg p-4 focus:outline-none">
-          <div className="transition-all duration-200 absolute h-full w-1 bg-purple-500 left-0 top-full active" />
-          <p className="font-bold overflow-ellipsis">{book.title}</p>
-          <p className="mt-2 text-sm">{book.excerpt}</p>
-          <p className="text-xs flex mt-2">
+    <>
+      <div className="bg-white dark:bg-gray-800 rounded shadow flex mb-3">
+        <div className="flex-1 p-2">
+          <p className="font-bold overflow-ellipsis text-2xl">{book?.name}</p>
+          <p className="text-sm flex mt-2 text-green-500">
             <Emoji symbol="⏳" />
             <span className="ml-2">
               {book.startDate
@@ -25,28 +23,27 @@ export const BookItem: React.FC<Props> = ({ book }) => {
             </span>
             <span className="mx-1">-</span>
             <span>
-              {book.finishDate
-                ? dayjs(book.finishDate).format(`MMMM D, YYYY`)
-                : `reading...`}
+              {(book.endDate && dayjs(book.endDate).format(`MMMM D, YYYY`)) ||
+                `reading...`}
             </span>
           </p>
+          <p className="text-sm mt-2">
+            {(book.excerpt && truncateString(book.excerpt, 200)) || (
+              <Emoji symbol="📝" />
+            )}
+          </p>
         </div>
-        <style jsx>{`
-          .book--item {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all;
-            duration: 200ms;
-          }
-          .book--item:hover .active {
-            top: 0;
-          }
-        `}</style>
-      </a>
-    </Link>
+        <div className="w-40 h-40">
+          <Image
+            src={book.image}
+            alt="book_image"
+            width=""
+            height=""
+            layout="responsive"
+            objectFit="cover"
+          />
+        </div>
+      </div>
+    </>
   );
 };

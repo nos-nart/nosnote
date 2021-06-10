@@ -1,19 +1,21 @@
-import { Seo, BookContent } from '@/components';
+import React from 'react';
+import { Seo, ExternalLink, CodeBlock } from '@/components';
+import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
-import { motion } from 'framer-motion';
-import { getBooks } from '@/utils/books';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import hydrate from 'next-mdx-remote/hydrate';
 import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import mdxPrism from 'mdx-prism';
 
-export default function Book({ markup, meta }) {
+const components = { ExternalLink, CodeBlock, Image };
+
+export default function Git({ markup, meta }): JSX.Element {
   const router = useRouter();
 
-  const content = hydrate({ ...markup }, {});
+  const content = hydrate({ ...markup }, { components });
 
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
@@ -24,38 +26,26 @@ export default function Book({ markup, meta }) {
   return (
     <>
       <Seo title={meta.title} description="" />
-      <BookContent meta={meta} content={content} />
+      <article className="leading-7 mb-24">{content}</article>
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const bookId = ctx.params.book as string;
-
+export const getStaticProps: GetStaticProps<any> = async () => {
   const mdxSource = await fs.promises.readFile(
-    path.join(process.cwd(), `content/books`, `${bookId}.mdx`),
+    path.join(process.cwd(), `content`, `git.mdx`),
     `utf-8`,
   );
   const { content, data } = matter(mdxSource);
   const markup = await renderToString(content, {
     scope: data,
     mdxOptions: { rehypePlugins: [mdxPrism] },
+    components,
   });
   return {
     props: {
       markup,
       meta: data,
     },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await getBooks()).map((ent) => ({
-    params: { book: ent.name.split(`.`)[0].toString() },
-  }));
-
-  return {
-    paths,
-    fallback: true,
   };
 };
