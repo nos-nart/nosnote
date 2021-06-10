@@ -32,7 +32,7 @@ export default function Tools({ tools }: Props): JSX.Element {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<any> = async () => {
   const tools = await getTools();
 
   return {
