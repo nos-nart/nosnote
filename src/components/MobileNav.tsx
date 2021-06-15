@@ -9,21 +9,24 @@ export const MobileNav: React.FC = () => {
   const pathname = router.pathname.split(`/`)[1];
 
   const ACTIVE_LINK = {
-    NOTES: pathname === `notes` ? `active` : ``,
+    POSTS: pathname === `posts` ? `active` : ``,
     TOOLS: pathname === `tools` ? `active` : ``,
     BOOKS: pathname === `books` ? `active` : ``,
+    CSS: pathname === `css` ? `active` : ``,
+    JS: pathname === `js` ? `active` : ``,
+    GIT: pathname === `git` ? `active` : ``,
   };
 
   return (
     <>
       <div className="z-50 xl:hidden block fixed bottom-0 left-0 right-0 lg:px-6 px-2 dark:bg-gray-900 bg-white mobile-nav">
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-6">
           <Link href="/notes" passHref>
             <a
-              className={`flex flex-col items-center py-2 ${ACTIVE_LINK.NOTES}`}
+              className={`flex flex-col items-center py-2 ${ACTIVE_LINK.POSTS}`}
             >
-              <Emoji symbol="📋" />
-              <span>notes</span>
+              <Emoji symbol="📰" />
+              <span>posts</span>
             </a>
           </Link>
           <Link href="/tools" passHref>
@@ -42,6 +45,24 @@ export const MobileNav: React.FC = () => {
               <span>books</span>
             </a>
           </Link>
+          <Link href="/css" passHref>
+            <a className={`flex flex-col items-center py-2 ${ACTIVE_LINK.CSS}`}>
+              <Emoji symbol="💅" />
+              <span>css</span>
+            </a>
+          </Link>
+          <Link href="/js" passHref>
+            <a className={`flex flex-col items-center py-2 ${ACTIVE_LINK.JS}`}>
+              <Emoji symbol="🔮" />
+              <span>js</span>
+            </a>
+          </Link>
+          <Link href="/git" passHref>
+            <a className={`flex flex-col items-center py-2 ${ACTIVE_LINK.GIT}`}>
+              <Emoji symbol="🐙" />
+              <span>git</span>
+            </a>
+          </Link>
         </div>
       </div>
       <style jsx>{`
@@ -50,7 +71,7 @@ export const MobileNav: React.FC = () => {
         }
 
         .active {
-          border-top: 5px solid #7c3aed;
+          border-bottom: 5px solid #7c3aed;
         }
       `}</style>
     </>

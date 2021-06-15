@@ -11,7 +11,7 @@ interface Props {
 export default function Tools({ tools }: Props): JSX.Element {
   return (
     <>
-      <h1 className="text-green-500 -mt-12">Tools 🛠</h1>
+      <h1 className="text-green-500">Tools 🛠</h1>
       <div className="flex items-center mt-6">
         <h3 className="text-yellow-500">Javascript</h3>
       </div>

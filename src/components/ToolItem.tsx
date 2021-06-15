@@ -10,7 +10,8 @@ export const ToolItem: React.FC<ITool> = ({ name, url }) => {
     <Link href={url}>
       <motion.a
         whileHover={{
-          x: 20,
+          scale: 1.2,
+          originX: 0,
           transition: { type: `spring` },
         }}
         className="inline-block dark:text-gray-400 text-gray-700 hover:text-blue-500 underline cursor-pointer py-2"

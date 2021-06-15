@@ -11,10 +11,10 @@ interface Props {
 export default function Books({ books }: Props): JSX.Element {
   return (
     <>
-      <h3 className="text-blue-500 font-bold mt-6">
+      <h3 className="text-blue-500 font-bold">
         Books I&#39;ve read <Emoji symbol="📚" />
       </h3>
-      <div className="mt-6">
+      <div className="mt-6 mb-20">
         {books.map((book: BookProps, index: number) => (
           <BookItem key={index} {...book} />
         ))}

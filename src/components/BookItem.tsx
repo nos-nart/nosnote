@@ -11,7 +11,7 @@ const truncateString = (str, num) =>
 export const BookItem: React.FC<BookProps> = (book) => {
   return (
     <>
-      <div className="bg-white dark:bg-gray-800 rounded shadow flex mb-3">
+      <div className="bg-white dark:bg-gray-800 rounded shadow flex sm:flex-row flex-col mb-3">
         <div className="flex-1 p-2">
           <p className="font-bold overflow-ellipsis text-2xl">{book?.name}</p>
           <p className="text-sm flex mt-2 text-green-500">
@@ -33,7 +33,7 @@ export const BookItem: React.FC<BookProps> = (book) => {
             )}
           </p>
         </div>
-        <div className="w-40 h-40">
+        <div className="sm:w-40 w-full h-40 sm:overflow-auto overflow-hidden">
           <Image
             src={book.image}
             alt="book_image"

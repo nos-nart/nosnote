@@ -8,14 +8,17 @@ export const Navigation: React.FC = () => {
         <NavLink href="/posts">
           <Emoji symbol="📰" /> posts
         </NavLink>
-        <NavLink href="/tools">
-          <Emoji symbol="🧰" /> tools
+        <NavLink href="/bookmark">
+          <Emoji symbol="🧰" /> bookmark
         </NavLink>
         <NavLink href="/books">
           <Emoji symbol="📖" /> books
         </NavLink>
-        <NavLink href="/musics">
-          <Emoji symbol="🎼" /> musics
+        <NavLink href="/css">
+          <Emoji symbol="💅" /> css
+        </NavLink>
+        <NavLink href="/js">
+          <Emoji symbol="🔮" /> js
         </NavLink>
         <NavLink href="/git">
           <Emoji symbol="🐙" /> git
