@@ -2,16 +2,25 @@
 import React from 'react';
 import Image from 'next/image';
 import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
 import { Emoji } from '.';
 import { BookProps } from '../utils/books';
 
-const truncateString = (str, num) =>
+const truncateString = (str: string, num: number): string =>
   str.length > num ? `${str.slice(0, num > 3 ? num - 3 : num)}...` : str;
+
+const bookItemVariant = {
+  hide: { x: 50 },
+  show: { x: 0 },
+};
 
 export const BookItem: React.FC<BookProps> = (book) => {
   return (
     <>
-      <div className="bg-white dark:bg-gray-800 rounded shadow flex sm:flex-row flex-col mb-3">
+      <motion.div
+        className="bg-white dark:bg-gray-800 rounded shadow flex sm:flex-row flex-col mb-3"
+        variants={bookItemVariant}
+      >
         <div className="flex-1 p-2">
           <p className="font-bold overflow-ellipsis text-2xl">{book?.name}</p>
           <p className="text-sm flex mt-2 text-green-500">
@@ -43,7 +52,7 @@ export const BookItem: React.FC<BookProps> = (book) => {
             objectFit="cover"
           />
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

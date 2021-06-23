@@ -1,79 +1,76 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Emoji } from '.';
+import { motion, useCycle } from 'framer-motion';
+import { HamburgerBtn } from './HamburgerBtn';
+import { Logo } from './svgs/Logo';
+import { Emoji } from './Emoji';
+
+interface MenuItemInterface {
+  href: string;
+  name: string;
+  symbol?: any;
+}
+
+const listMobileMenuItem: Array<MenuItemInterface> = [
+  { href: `/posts`, name: `posts`, symbol: `🍌` },
+  { href: `/bookmark`, name: `bookmark`, symbol: `🍇` },
+  { href: `/books`, name: `books`, symbol: `🍓` },
+  { href: `/css`, name: `css`, symbol: `🍉` },
+];
+
+const navVariants = {
+  open: {},
+  closed: {},
+};
+
+const mbNavVariants = {
+  closed: {},
+  open: {},
+};
+
+const MobileNavItem: React.FC<MenuItemInterface> = ({ href, name, symbol }) => {
+  return (
+    <motion.li variants={mbNavVariants}>
+      <Link href={href} passHref>
+        <a className="flex flex-col items-center py-2">
+          <Emoji symbol={symbol} />
+          <span>{name}</span>
+        </a>
+      </Link>
+    </motion.li>
+  );
+};
 
 export const MobileNav: React.FC = () => {
-  const router = useRouter();
-  const pathname = router.pathname.split(`/`)[1];
-
-  const ACTIVE_LINK = {
-    POSTS: pathname === `posts` ? `active` : ``,
-    TOOLS: pathname === `tools` ? `active` : ``,
-    BOOKS: pathname === `books` ? `active` : ``,
-    CSS: pathname === `css` ? `active` : ``,
-    JS: pathname === `js` ? `active` : ``,
-    GIT: pathname === `git` ? `active` : ``,
-  };
+  const [isOpen, setIsOpen] = useCycle(false, true);
 
   return (
     <>
-      <div className="z-50 xl:hidden block fixed bottom-0 left-0 right-0 lg:px-6 px-2 dark:bg-gray-900 bg-white mobile-nav">
-        <div className="grid grid-cols-6">
-          <Link href="/notes" passHref>
-            <a
-              className={`flex flex-col items-center py-2 ${ACTIVE_LINK.POSTS}`}
-            >
-              <Emoji symbol="📰" />
-              <span>posts</span>
+      <motion.div
+        className="px-2 py-4 t-0 l-0 fixed w-80"
+        variants={navVariants}
+      >
+        <div className="flex justify-between">
+          <Link href="/">
+            <a>
+              <Logo className="w-16 h-16 cursor-pointer" />
             </a>
           </Link>
-          <Link href="/tools" passHref>
-            <a
-              className={`flex flex-col items-center py-2 ${ACTIVE_LINK.TOOLS}`}
-            >
-              <Emoji symbol="🧰" />
-              <span>tools</span>
-            </a>
-          </Link>
-          <Link href="/books" passHref>
-            <a
-              className={`flex flex-col items-center py-2 ${ACTIVE_LINK.BOOKS}`}
-            >
-              <Emoji symbol="📖" />
-              <span>books</span>
-            </a>
-          </Link>
-          <Link href="/css" passHref>
-            <a className={`flex flex-col items-center py-2 ${ACTIVE_LINK.CSS}`}>
-              <Emoji symbol="💅" />
-              <span>css</span>
-            </a>
-          </Link>
-          <Link href="/js" passHref>
-            <a className={`flex flex-col items-center py-2 ${ACTIVE_LINK.JS}`}>
-              <Emoji symbol="🔮" />
-              <span>js</span>
-            </a>
-          </Link>
-          <Link href="/git" passHref>
-            <a className={`flex flex-col items-center py-2 ${ACTIVE_LINK.GIT}`}>
-              <Emoji symbol="🐙" />
-              <span>git</span>
-            </a>
-          </Link>
+          <HamburgerBtn />
         </div>
-      </div>
-      <style jsx>{`
-        .mobile-nav {
-          backdrop-filter: blur(5px);
-        }
-
-        .active {
-          border-bottom: 5px solid #7c3aed;
-        }
-      `}</style>
+        <ul className="flex flex-col items-start">
+          {(() => {
+            if (!listMobileMenuItem.length) {
+              return <p>There are no menu to render!</p>;
+            }
+            return listMobileMenuItem.map(({ href, name, symbol }) => (
+              <MobileNavItem href={href} name={name} symbol={symbol} />
+            ));
+          })()}
+        </ul>
+      </motion.div>
+      {/* <style jsx>{``}</style> */}
     </>
   );
 };

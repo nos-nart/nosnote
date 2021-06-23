@@ -42,7 +42,7 @@ export const ThemeToggle: React.FC = () => {
         className="cursor-pointer focus:outline-none dark:text-white text-gray-900"
       >
         <svg
-          className="w-10 h-10"
+          className="w-8 h-8"
           viewBox="0 0 258 258"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

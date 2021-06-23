@@ -9,11 +9,13 @@ export const Header: React.FC = () => {
     <>
       <header className="px-2 sticky top-0 z-50 bg-header-light dark:bg-header-dark">
         <nav className="flex justify-between items-center h-20">
-          <Link href="/">
-            <a>
-              <Logo className="w-16 h-16 cursor-pointer" />
-            </a>
-          </Link>
+          <div className="sm:block hidden">
+            <Link href="/">
+              <a>
+                <Logo className="w-16 h-16 cursor-pointer" />
+              </a>
+            </Link>
+          </div>
           <ThemeToggle />
         </nav>
       </header>

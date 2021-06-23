@@ -10,7 +10,16 @@ export default function Custom404() {
         animate={{ y: 0 }}
         transition={{ type: `spring`, stiffness: 300 }}
       >
-        <Image width="auto" height="auto" src="/404.png" />
+        <div className="sm:w-40 w-full h-40 sm:overflow-auto overflow-hidden">
+          <Image
+            src="/404.png"
+            alt="book_image"
+            width=""
+            height=""
+            layout="responsive"
+            objectFit="cover"
+          />
+        </div>
         <p className="text-purple-500 text-xl text-center">Page not found!</p>
       </motion.div>
     </>

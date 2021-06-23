@@ -36,12 +36,12 @@ article code {
 }
 
 p > code, li > code {
-  @apply dark:bg-gray-700 dark:text-white bg-gray-400 text-black p-1;
+  @apply dark:bg-gray-600 dark:text-white bg-gray-400 text-black p-1;
 }
 
 pre {
   overflow-x: auto;
-  @apply dark:bg-gray-700 dark:text-white bg-gray-300 text-black p-2;
+  @apply bg-gray-800 text-white p-2 rounded-md;
 }
 
 article  blockquote {
