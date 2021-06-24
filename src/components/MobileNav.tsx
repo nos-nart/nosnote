@@ -31,14 +31,14 @@ const mbNavVariants = {
 
 const MobileNavItem: React.FC<MenuItemInterface> = ({ href, name, symbol }) => {
   return (
-    <motion.li variants={mbNavVariants}>
+    <motion.div variants={mbNavVariants}>
       <Link href={href} passHref>
-        <a className="flex flex-col items-center py-2">
+        <a className="flex items-center py-2">
           <Emoji symbol={symbol} />
-          <span>{name}</span>
+          <span className="ml-1">{name}</span>
         </a>
       </Link>
-    </motion.li>
+    </motion.div>
   );
 };
 
@@ -48,7 +48,7 @@ export const MobileNav: React.FC = () => {
   return (
     <>
       <motion.div
-        className="px-2 py-4 t-0 l-0 fixed w-80"
+        className="px-2 py-4 top-0 left-0 fixed w-64 dark:bg-gray-800 bg-gray-200 dark:text-white text-black z-50"
         variants={navVariants}
       >
         <div className="flex justify-between">
@@ -59,16 +59,22 @@ export const MobileNav: React.FC = () => {
           </Link>
           <HamburgerBtn />
         </div>
-        <ul className="flex flex-col items-start">
+        <div className="flex flex-col items-start">
           {(() => {
             if (!listMobileMenuItem.length) {
               return <p>There are no menu to render!</p>;
             }
-            return listMobileMenuItem.map(({ href, name, symbol }) => (
-              <MobileNavItem href={href} name={name} symbol={symbol} />
+            return listMobileMenuItem.map(({ href, name, symbol }, index) => (
+              <MobileNavItem
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                href={href}
+                name={name}
+                symbol={symbol}
+              />
             ));
           })()}
-        </ul>
+        </div>
       </motion.div>
       {/* <style jsx>{``}</style> */}
     </>

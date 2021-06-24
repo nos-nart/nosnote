@@ -1,10 +1,15 @@
 import { GetStaticProps } from 'next';
 import { Seo, PostList } from '@/components';
-import { getPostList } from '@/utils/posts';
+import { getPostList, PostMetadata } from '@/utils/posts';
 import dayjs from 'dayjs';
 import { listTags } from '@/utils/tags';
 
-export default function PostIndex({ posts, tags }): JSX.Element {
+interface IPost {
+  posts: PostMetadata[];
+  tags: any;
+}
+
+export default function PostIndex({ posts, tags }: IPost): JSX.Element {
   return (
     <>
       <Seo title="posts" description="" />
@@ -13,7 +18,7 @@ export default function PostIndex({ posts, tags }): JSX.Element {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<IPost> = async () => {
   const posts = (await getPostList()).sort((a, b) => {
     const isoA = dayjs(a.published).toISOString();
     const isoB = dayjs(b.published).toISOString();

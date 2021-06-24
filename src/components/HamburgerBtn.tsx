@@ -16,7 +16,7 @@ export const HamburgerBtn: React.FC = () => {
   return (
     <button
       type="button"
-      className="sm:hidden focus:outline-none block dark:text-white text-gray-800"
+      className="focus:outline-none dark:text-white text-gray-800"
     >
       <svg className="w-8 h-8" viewBox="0 0 23 23">
         <Path

@@ -12,7 +12,7 @@ export const PostContent: React.FC<Props> = ({ meta, content }) => {
   return (
     <>
       <Link href="/posts">
-        <a className="dark:text-gray-300 text-gray-500 items-center -mt-12 flex hover:text-purple-600 w-40">
+        <a className="dark:text-gray-300 text-gray-500 items-center -mt-6 flex hover:text-purple-600 w-40">
           <ArrowLeft className="w-6 h-6 mr-2" />
           <span>Back to posts</span>
         </a>

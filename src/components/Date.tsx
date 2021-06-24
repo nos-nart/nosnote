@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 type Props = {
-  date: Date;
+  date: string | Date;
 };
 
 export const Date: React.FC<Props> = ({ date }) => {

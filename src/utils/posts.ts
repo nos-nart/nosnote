@@ -2,11 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import grayMatter from 'gray-matter';
 
-interface PostMetadata {
+export type PostMetadata = {
   slug: string;
   title: string;
   published: string;
-}
+};
 
 export async function getPosts(): Promise<fs.Dirent[]> {
   return (

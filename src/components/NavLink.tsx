@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 
 export const NavLink: FC<LinkProps> = ({ href, children }) => {
@@ -10,11 +11,17 @@ export const NavLink: FC<LinkProps> = ({ href, children }) => {
   return (
     <>
       <Link href={href} passHref>
-        <a
+        <motion.a
+          whileHover={{ scale: 1.3, originX: 0 }}
+          transition={{
+            duration: 0.3,
+            type: `spring`,
+            stiffness: 300,
+          }}
           className={`my-1 leading-10 default-transition hover:text-purple-500 ${activeStyle}`}
         >
           {children}
-        </a>
+        </motion.a>
       </Link>
       <style jsx>{`
         a {
