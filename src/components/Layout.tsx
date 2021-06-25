@@ -9,7 +9,9 @@ export const Layout: React.FC = ({ children }) => {
       <Header />
       <div className="flex items-start mt-6">
         <Navigation />
-        <MobileNav />
+        <div className="xl:hidden block">
+          <MobileNav />
+        </div>
         <div className="w-full max-w-3xl mt-4 flex flex-1 xl:ml-56 ml-auto mr-auto">
           <div className="px-2 w-full">{children}</div>
         </div>

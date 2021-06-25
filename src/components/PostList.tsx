@@ -17,15 +17,19 @@ const postWrapperVariants = {
     opacity: 1,
     transition: {
       duration: 0.2,
-      staggerChildren: 0.2,
+      staggerChildren: 0.05,
       delayChildren: 0.5,
     },
   },
 };
 
 const postVariants = {
-  hide: { x: 250 },
-  show: { x: 0, transition: { duration: 0.2, type: `spring`, stiffness: 300 } },
+  hide: { x: 250, opacity: 0 },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.2, type: `spring`, stiffness: 150 },
+  },
 };
 
 export const PostList: React.FC<Props> = ({ posts, tags }) => {

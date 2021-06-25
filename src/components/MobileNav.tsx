@@ -31,9 +31,9 @@ const mbNavVariants = {
 
 const MobileNavItem: React.FC<MenuItemInterface> = ({ href, name, symbol }) => {
   return (
-    <motion.div variants={mbNavVariants}>
+    <motion.div variants={mbNavVariants} className="w-full">
       <Link href={href} passHref>
-        <a className="flex items-center py-2">
+        <a className="flex items-center py-3 w-full">
           <Emoji symbol={symbol} />
           <span className="ml-1">{name}</span>
         </a>
@@ -48,10 +48,10 @@ export const MobileNav: React.FC = () => {
   return (
     <>
       <motion.div
-        className="px-2 py-4 top-0 left-0 fixed w-64 dark:bg-gray-800 bg-gray-200 dark:text-white text-black z-50"
+        className="px-2 py-4 top-0 left-0 fixed w-64 dark:bg-gray-800 bg-gray-200 dark:text-white text-black z-50 h-screen overflow-auto"
         variants={navVariants}
       >
-        <div className="flex justify-between">
+        <div className="flex justify-between mb-3">
           <Link href="/">
             <a>
               <Logo className="w-16 h-16 cursor-pointer" />

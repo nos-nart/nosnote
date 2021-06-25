@@ -17,7 +17,9 @@ export const Header: React.FC = () => {
               </a>
             </Link>
           </div>
-          <HamburgerBtn />
+          <div className="xl:hidden block">
+            <HamburgerBtn />
+          </div>
           <ThemeToggle />
         </nav>
       </header>
