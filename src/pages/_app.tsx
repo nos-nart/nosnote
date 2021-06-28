@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import '../styles/index.css';
 import { Layout, ThemeProvider } from '@/components';
-// import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps, router }) {
   return (
@@ -32,9 +32,11 @@ function MyApp({ Component, pageProps, router }) {
         }}
       />
       <ThemeProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AnimatePresence initial={false} exitBeforeEnter>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AnimatePresence>
       </ThemeProvider>
     </>
   );

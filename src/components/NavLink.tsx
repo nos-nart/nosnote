@@ -12,11 +12,11 @@ export const NavLink: FC<LinkProps> = ({ href, children }) => {
     <>
       <Link href={href} passHref>
         <motion.a
-          whileHover={{ scale: 1.3, originX: 0 }}
+          whileHover={{ x: 10 }}
           transition={{
             duration: 0.3,
             type: `spring`,
-            stiffness: 300,
+            stiffness: 250,
           }}
           className={`my-1 leading-10 default-transition hover:text-purple-500 ${activeStyle}`}
         >

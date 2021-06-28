@@ -41,7 +41,7 @@ p > code, li > code {
 
 pre {
   overflow-x: auto;
-  @apply bg-gray-800 text-white p-2 rounded-md;
+  @apply bg-gray-800 text-white p-2 rounded-sm;
 }
 
 article  blockquote {

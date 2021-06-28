@@ -21,6 +21,13 @@ const postWrapperVariants = {
       delayChildren: 0.5,
     },
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      staggerDirection: -1,
+    },
+  },
 };
 
 const postVariants = {
@@ -29,6 +36,15 @@ const postVariants = {
     x: 0,
     opacity: 1,
     transition: { duration: 0.2, type: `spring`, stiffness: 150 },
+  },
+  exit: {
+    x: -250,
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      type: `tween`,
+      ease: `easeIn`,
+    },
   },
 };
 
@@ -42,6 +58,7 @@ export const PostList: React.FC<Props> = ({ posts, tags }) => {
           variants={postWrapperVariants}
           initial="hide"
           animate="show"
+          exit="exit"
         >
           {(() => {
             if (!posts.length) {
